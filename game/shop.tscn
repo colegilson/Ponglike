@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://dyg3lqps5j3aj"]
 
+[ext_resource type="Texture2D" uid="uid://ddvkhlsb0swpv" path="res://assets/backdrops/shop1.png" id="1_ungis"]
+
 [node name="Shop" type="Node2D" unique_id=1331112119]
+
+[node name="ShopBG" type="Sprite2D" parent="." unique_id=264251308]
+position = Vector2(606, 436)
+texture = ExtResource("1_ungis")
