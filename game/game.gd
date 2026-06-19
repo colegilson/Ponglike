@@ -34,7 +34,7 @@ func spawn_ball(restart_direction: String) -> void:
 	ball.global_position = ball_spawn_position.global_position
 	add_child(ball)
 	
-	# Randomly choose NE, NW, SW, or SE direction
+	# choose NE, NW, SW, or SE direction based on goal scored on
 	var starting_angle: float = 0.0
 	if restart_direction == "Right":
 		starting_angle = [3, 5].pick_random() * PI / 4.0
