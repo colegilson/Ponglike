@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dmov0n6cflnxj"]
 
 [ext_resource type="Script" uid="uid://b8qgljfi4ut1u" path="res://game/game.gd" id="1_l1rk1"]
+[ext_resource type="PackedScene" uid="uid://dyg3lqps5j3aj" path="res://game/shop.tscn" id="2_dxrkv"]
 [ext_resource type="PackedScene" uid="uid://dfq6d3x5qit4i" path="res://components/paddle/paddle.tscn" id="2_vasa2"]
+[ext_resource type="PackedScene" uid="uid://bk4p8n8kujxie" path="res://game/minigames.tscn" id="3_dakft"]
 [ext_resource type="AudioStream" uid="uid://o44jal8svjmx" path="res://common/sfx/score.wav" id="3_h7iqs"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vasa2"]
@@ -17,6 +19,10 @@ size = Vector2(50, 1080)
 
 [node name="Game" type="Node2D" unique_id=156740021]
 script = ExtResource("1_l1rk1")
+
+[node name="Shop" parent="." unique_id=1331112119 instance=ExtResource("2_dxrkv")]
+
+[node name="Minigames" parent="." unique_id=483404697 instance=ExtResource("3_dakft")]
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=520052765]
 layer = -1

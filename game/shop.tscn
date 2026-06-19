@@ -5,5 +5,7 @@
 [node name="Shop" type="Node2D" unique_id=1331112119]
 
 [node name="ShopBG" type="Sprite2D" parent="." unique_id=264251308]
-position = Vector2(606, 436)
+texture_filter = 3
+position = Vector2(960.5, 541.50006)
+scale = Vector2(4.0020833, 4.011111)
 texture = ExtResource("1_ungis")
