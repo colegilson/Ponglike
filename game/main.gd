@@ -1,6 +1,7 @@
 extends Node2D
 @export var shop_scene: PackedScene
-@export var minigames_scene: PackedScene
+@export var blackjack_scene: PackedScene
+@export var plinko_scene: PackedScene
 @export var game_scene: PackedScene
 @onready var current: Node2D = $Game
 
@@ -24,6 +25,9 @@ func _process(delta: float) -> void:
 
 func _on_game_game_won(player: String) -> void:
 	remove_child(current)
-	current = minigames_scene.instantiate()
+	#var minigame_options = [blackjack_scene, plinko_scene]
+	#var minigame = minigame_options.pick_random()
+	var minigame = plinko_scene
+	current = minigame.instantiate()
 	add_child(current)
 	

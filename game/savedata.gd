@@ -8,3 +8,5 @@ static var ball_inventory_left: Array[BallData] = []
 static var ball_inventory_right: Array[BallData] = [] 
 static var recent_winner: String = "left"
 static var recent_loser: String = "right"
+static var money_left: int = 0
+static var money_right: int = 0

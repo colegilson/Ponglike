@@ -32,14 +32,14 @@ func _process(delta: float) -> void:
 		#right_hand.get_child(0).text = "held at: %s" % right_score
 		right_hand.set_meta("blocked", true)
 		
-	if loser_hand.get_child_count() > 4 or right_score > 20 or Input.is_action_just_released("left_move_down"):
+	if left_hand.get_child_count() > 4 or right_score > 20 or Input.is_action_just_released("left_move_down"): #this was meant to say left hand right bc it said loser before
 		#left_hand.get_child(0).text = "held at: %s" % right_score
 		left_hand.set_meta("blocked", true)
 	
 	if Input.is_action_just_released("left_move_up") and left_hand.get_meta("Blocked") == false:
 			left_hit(left_hand)
 	print(Input.is_action_just_released("right_move_up"))
-	print(right_hand.get_meta("Blocked"))
+	print(right_hand.get_meta("blocked"))
 	if Input.is_action_just_released("right_move_up") and right_hand.get_meta("Blocked") == false:
 			right_hit(right_hand)
 

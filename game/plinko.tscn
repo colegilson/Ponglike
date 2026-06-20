@@ -14,6 +14,12 @@ radius = 24.186773
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2okng"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2okng"]
+size = Vector2(17, 131.57693)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1w1j"]
+size = Vector2(18, 319.1128)
+
 [node name="Plinko" type="Node2D" unique_id=787509409]
 script = ExtResource("1_gkm67")
 
@@ -29,7 +35,6 @@ texture = ExtResource("1_k0jfd")
 mass = 4.642
 physics_material_override = ExtResource("3_2okng")
 center_of_mass_mode = 1
-angular_velocity = 0.2617994
 script = ExtResource("3_prv06")
 
 [node name="Sprite2D" type="Sprite2D" parent="Disc" unique_id=1207528926]
@@ -552,3 +557,22 @@ shape = SubResource("CircleShape2D_prv06")
 [node name="CollisionShape2D56" type="CollisionShape2D" parent="Points" unique_id=1039857444]
 position = Vector2(1728, 736)
 shape = SubResource("CircleShape2D_prv06")
+
+[node name="LeftBound" type="Area2D" parent="." unique_id=223549423]
+position = Vector2(87, 114)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBound" unique_id=1836359660]
+position = Vector2(0, -6.209999)
+scale = Vector2(1, 0.52)
+shape = SubResource("RectangleShape2D_2okng")
+
+[node name="RightBound" type="Area2D" parent="." unique_id=1724451899]
+position = Vector2(1834, 125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBound" unique_id=252758582]
+position = Vector2(0, -20)
+scale = Vector2(1.6061243, -0.111295275)
+shape = SubResource("RectangleShape2D_j1w1j")
+
+[connection signal="body_entered" from="LeftBound" to="Disc" method="_on_left_bound_body_entered"]
+[connection signal="body_entered" from="RightBound" to="Disc" method="_on_right_bound_body_entered"]
