@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 
 
 func _on_game_game_won(player: String) -> void:
+	remove_child.call_deferred(current)
 	SaveData.recent_winner = player
 	get_tree().change_scene_to_file("res://game/blackjack.tscn")
 	#var minigame_options = [blackjack_scene, plinko_scene]
@@ -31,5 +32,5 @@ func _on_game_game_won(player: String) -> void:
 	#var minigame = plinko_scene
 	#var minigame = blackjack_scene
 	#current = minigame.instantiate()
-	#add_child(current)
+	#add_child.call_deferred(current)
 	
