@@ -8,7 +8,7 @@ var ball: Ball = null
 var left_score: int = 3
 var right_score: int = 3
 
-signal game_won
+signal game_won(player: String)
 
 @onready var left_score_label: Label = %LeftScoreLabel
 @onready var right_score_label: Label = %RightScoreLabel
