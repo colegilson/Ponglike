@@ -29,6 +29,7 @@ func _process(_delta: float) -> void:
 	left_paddle.input = Input.get_axis("left_move_up", "left_move_down")
 	#print(left_paddle.input)
 	right_paddle.input = Input.get_axis("right_move_up", "right_move_down")
+	#print(right_paddle.input)
 
 
 # Spawn a new ball in a random angled direction

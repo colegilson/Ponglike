@@ -7,6 +7,7 @@
 [node name="Minigames" type="Node2D" unique_id=483404697]
 
 [node name="Plinko" parent="." unique_id=787509409 instance=ExtResource("1_k4qng")]
+script = null
 
 [node name="Blackjack" parent="." unique_id=1561088797 instance=ExtResource("2_qo22h")]
 
