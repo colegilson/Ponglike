@@ -5,8 +5,8 @@ extends Node2D
 const BALL_SCENE := preload("uid://dpieyslanfybp")
 
 var ball: Ball = null
-var left_score: int = 3
-var right_score: int = 3
+var left_score: int = 1
+var right_score: int = 1
 
 signal game_won(player: String)
 
