@@ -1,0 +1,10 @@
+extends RefCounted
+class_name SaveData
+
+static var current_user = "left" #left, right, or both depending on if pong, solo minigame, 2 player minigame (blackjack) or solo shops - will be used to display scene transitions
+static var rounds_won_left = 0
+static var rounds_won_right = 0
+static var ball_inventory_left: Array[BallData] = [] 
+static var ball_inventory_right: Array[BallData] = [] 
+static var stick_inventory_left: Array[StickData] = [] 
+static var stick_inventory_right: Array[StickData] = [] 

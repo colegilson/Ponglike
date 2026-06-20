@@ -5,8 +5,10 @@ extends Node2D
 const BALL_SCENE := preload("uid://dpieyslanfybp")
 
 var ball: Ball = null
-var left_score: int = 0
-var right_score: int = 0
+var left_score: int = 1
+var right_score: int = 1
+
+signal game_won(player: String)
 
 @onready var left_score_label: Label = %LeftScoreLabel
 @onready var right_score_label: Label = %RightScoreLabel
@@ -16,51 +18,63 @@ var right_score: int = 0
 @onready var score_sfx: AudioStreamPlayer = %ScoreSFX
 
 
+
 # Game starts with a new ball spawning
 func _ready() -> void:
-	spawn_ball()
+	spawn_ball(["Right", "Left"].pick_random())
 
 
 # Control the left paddle with input
 func _process(_delta: float) -> void:
-	left_paddle.input = Input.get_axis("move_up", "move_down")
+	left_paddle.input = Input.get_axis("left_move_up", "left_move_down")
+	#print(left_paddle.input)
+	right_paddle.input = Input.get_axis("right_move_up", "right_move_down")
 
 
 # Spawn a new ball in a random angled direction
-func spawn_ball() -> void:
+func spawn_ball(restart_direction: String) -> void:
 	ball = BALL_SCENE.instantiate()
 	ball.global_position = ball_spawn_position.global_position
 	add_child(ball)
 	
-	# Randomly choose NE, NW, SW, or SE direction
-	var starting_angle: float = [1, 3, 5, 7].pick_random() * PI / 4.0
+	# choose NE, NW, SW, or SE direction based on goal scored on
+	var starting_angle: float = 0.0
+	if restart_direction == "Right":
+		starting_angle = [3, 5].pick_random() * PI / 4.0
+	else:
+		starting_angle = [1, 7].pick_random() * PI / 4.0
 	var starting_direction := Vector2.from_angle(starting_angle)
 	ball.set_direction(starting_direction)
 	
 	# Update what the AI paddles is following
-	right_paddle.target = ball
+	
 
 
 # Restart game by spawning a new ball
-# Note that paddles are *not* reset
-func restart() -> void:
+func restart(restart_direction: String) -> void:
 	if ball:
 		ball.queue_free()
-	spawn_ball()
+	spawn_ball(restart_direction)
 
 
 # Restart the game on either goal being entered
-# Update the oppsite sides score
+# Update the score
 # The goals have a collision mask for just the ball
 func _on_left_goal_body_entered(_body: Node2D) -> void:
-	right_score += 1
-	right_score_label.text = str(right_score)
+	left_score -= 1
+	left_score_label.text = str(left_score)
+	if left_score < 1:
+		print("Left loses #loser")
+		game_won.emit("right")
 	score_sfx.play()
-	restart.call_deferred()
+	restart.call_deferred("Right")
 
 
 func _on_right_goal_body_entered(_body: Node2D) -> void:
-	left_score += 1
-	left_score_label.text = str(left_score)
+	right_score -= 1
+	right_score_label.text = str(right_score)
+	if right_score < 1:
+		print("Right loses #loser")
+		game_won.emit("left")
 	score_sfx.play()
-	restart.call_deferred()
+	restart.call_deferred("Left")
