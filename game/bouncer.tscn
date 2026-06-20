@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bfl1qomjwjlna"]
+
+[ext_resource type="Texture2D" uid="uid://dxk0ho0urqqex" path="res://components/ball/ball.png" id="1_ugcvw"]
+
+[node name="Bouncer" type="Sprite2D" unique_id=349538825]
+texture = ExtResource("1_ugcvw")
