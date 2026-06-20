@@ -5,14 +5,10 @@
 [ext_resource type="PhysicsMaterial" uid="uid://03bdafpyhnjy" path="res://discmaterial.tres" id="3_2okng"]
 [ext_resource type="Script" uid="uid://bp2osx2nvvsvk" path="res://game/disc.gd" id="3_prv06"]
 [ext_resource type="Texture2D" uid="uid://qdcd47ntd8hh" path="res://assets/plinko/disc.png" id="4_prv06"]
-[ext_resource type="Script" uid="uid://cwelssl645aop" path="res://game/point.gd" id="5_prv06"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_j1w1j"]
-radius = 24.186773
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_prv06"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2okng"]
+[ext_resource type="PackedScene" uid="uid://b23ni57420un4" path="res://game/bouncer_heart.tscn" id="5_co0hn"]
+[ext_resource type="PackedScene" uid="uid://b2w8m41rl20nh" path="res://game/bouncer_diamond.tscn" id="5_jfck1"]
+[ext_resource type="PackedScene" uid="uid://rk3pd6lignyn" path="res://game/bouncer_spade.tscn" id="7_7673t"]
+[ext_resource type="PackedScene" uid="uid://dm2kb05uho7g6" path="res://game/bouncer_club.tscn" id="8_56nrw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2okng"]
 size = Vector2(17, 131.57693)
@@ -20,8 +16,12 @@ size = Vector2(17, 131.57693)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1w1j"]
 size = Vector2(18, 319.1128)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j1w1j"]
+radius = 24.186773
+
 [node name="Plinko" type="Node2D" unique_id=787509409]
 script = ExtResource("1_gkm67")
+bouncers = Array[PackedScene]([ExtResource("7_7673t"), ExtResource("8_56nrw"), ExtResource("5_co0hn"), ExtResource("5_jfck1")])
 
 [node name="Backdrop" type="Sprite2D" parent="." unique_id=880238922]
 texture_filter = 3
@@ -30,6 +30,24 @@ scale = Vector2(3.008203, 2.9861112)
 texture = ExtResource("1_k0jfd")
 
 [node name="Board" type="Node2D" parent="." unique_id=1741025145]
+
+[node name="LeftBound" type="Area2D" parent="Board" unique_id=223549423]
+position = Vector2(87, 114)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/LeftBound" unique_id=1836359660]
+position = Vector2(0, -6.209999)
+scale = Vector2(1, 0.52)
+shape = SubResource("RectangleShape2D_2okng")
+
+[node name="RightBound" type="Area2D" parent="Board" unique_id=1724451899]
+position = Vector2(1834, 125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/RightBound" unique_id=252758582]
+position = Vector2(0, -20)
+scale = Vector2(1.6061243, -0.111295275)
+shape = SubResource("RectangleShape2D_j1w1j")
+
+[node name="Boing" type="Node2D" parent="Board" unique_id=930413711]
 
 [node name="Disc" type="RigidBody2D" parent="." unique_id=266553497]
 mass = 4.642
@@ -54,525 +72,260 @@ polygon = PackedVector2Array(86, 865, 86, 1003, 1844, 1007, 1844, 863, 1832, 863
 
 [node name="Points" type="Node2D" parent="." unique_id=1266545476]
 
-[node name="Point" type="StaticBody2D" parent="Points" unique_id=99898078]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point" unique_id=898139469]
-position = Vector2(1024, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point2" type="StaticBody2D" parent="Points" unique_id=442934915]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point2" unique_id=425781828]
-position = Vector2(1152, 256)
-shape = SubResource("CircleShape2D_2okng")
-
-[node name="Point3" type="StaticBody2D" parent="Points" unique_id=1343607091]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point3" unique_id=567776678]
-position = Vector2(896, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point4" type="StaticBody2D" parent="Points" unique_id=1861463658]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point4" unique_id=100415451]
-position = Vector2(768, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point5" type="StaticBody2D" parent="Points" unique_id=425511748]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point5" unique_id=1135330097]
-position = Vector2(640, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point6" type="StaticBody2D" parent="Points" unique_id=1780056225]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point6" unique_id=1088706559]
-position = Vector2(512, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point7" type="StaticBody2D" parent="Points" unique_id=498342400]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point7" unique_id=617362521]
-position = Vector2(384, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point8" type="StaticBody2D" parent="Points" unique_id=1275943014]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point8" unique_id=791810166]
-position = Vector2(256, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point9" type="StaticBody2D" parent="Points" unique_id=1854288238]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point9" unique_id=692509113]
-position = Vector2(128, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point10" type="StaticBody2D" parent="Points" unique_id=810451028]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point10" unique_id=1441962253]
-position = Vector2(832, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point11" type="StaticBody2D" parent="Points" unique_id=1402000269]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point11" unique_id=1372177393]
-position = Vector2(704, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point12" type="StaticBody2D" parent="Points" unique_id=2055408001]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point12" unique_id=1094160107]
-position = Vector2(576, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point13" type="StaticBody2D" parent="Points" unique_id=1624312121]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point13" unique_id=866785273]
-position = Vector2(448, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point14" type="StaticBody2D" parent="Points" unique_id=538321558]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point14" unique_id=1550114928]
-position = Vector2(320, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point15" type="StaticBody2D" parent="Points" unique_id=1032602153]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point15" unique_id=210404847]
-position = Vector2(192, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point16" type="StaticBody2D" parent="Points" unique_id=1207698238]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point16" unique_id=1960796617]
-position = Vector2(640, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point17" type="StaticBody2D" parent="Points" unique_id=25819850]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point17" unique_id=1267850214]
-position = Vector2(512, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point18" type="StaticBody2D" parent="Points" unique_id=1831509086]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point18" unique_id=1793088086]
-position = Vector2(384, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point19" type="StaticBody2D" parent="Points" unique_id=1984679073]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point19" unique_id=373020823]
-position = Vector2(256, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point20" type="StaticBody2D" parent="Points" unique_id=1238478683]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point20" unique_id=1421385221]
-position = Vector2(128, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point21" type="StaticBody2D" parent="Points" unique_id=507960375]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point21" unique_id=647580840]
-position = Vector2(192, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point22" type="StaticBody2D" parent="Points" unique_id=918830806]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point22" unique_id=103355644]
-position = Vector2(320, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point23" type="StaticBody2D" parent="Points" unique_id=1709711835]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point23" unique_id=286744019]
-position = Vector2(448, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point24" type="StaticBody2D" parent="Points" unique_id=816257108]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point24" unique_id=1292079392]
-position = Vector2(576, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point25" type="StaticBody2D" parent="Points" unique_id=815178929]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point25" unique_id=1747987662]
-position = Vector2(768, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point26" type="StaticBody2D" parent="Points" unique_id=490783760]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point26" unique_id=287698608]
-position = Vector2(704, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point27" type="StaticBody2D" parent="Points" unique_id=382646199]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point27" unique_id=1722513298]
-position = Vector2(1024, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point28" type="StaticBody2D" parent="Points" unique_id=1836129010]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point28" unique_id=1786114306]
-position = Vector2(960, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point29" type="StaticBody2D" parent="Points" unique_id=1027221650]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point29" unique_id=1298087828]
-position = Vector2(896, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point30" type="StaticBody2D" parent="Points" unique_id=1195202262]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point30" unique_id=2077567624]
-position = Vector2(832, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point31" type="StaticBody2D" parent="Points" unique_id=654547698]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point31" unique_id=1750801645]
-position = Vector2(1408, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point32" type="StaticBody2D" parent="Points" unique_id=837822358]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point32" unique_id=261135617]
-position = Vector2(1344, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point33" type="StaticBody2D" parent="Points" unique_id=667144097]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point33" unique_id=417535018]
-position = Vector2(1280, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point34" type="StaticBody2D" parent="Points" unique_id=866481135]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point34" unique_id=319968217]
-position = Vector2(1216, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point35" type="StaticBody2D" parent="Points" unique_id=1962683850]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point35" unique_id=621063158]
-position = Vector2(1152, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point36" type="StaticBody2D" parent="Points" unique_id=479122368]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point36" unique_id=1471934567]
-position = Vector2(1088, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point37" type="StaticBody2D" parent="Points" unique_id=1203871866]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point37" unique_id=818184703]
-position = Vector2(1344, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point38" type="StaticBody2D" parent="Points" unique_id=1836972242]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point38" unique_id=472038332]
-position = Vector2(1216, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point39" type="StaticBody2D" parent="Points" unique_id=1026930937]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point39" unique_id=1237680494]
-position = Vector2(1088, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point40" type="StaticBody2D" parent="Points" unique_id=1784518708]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point40" unique_id=646611945]
-position = Vector2(1600, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point41" type="StaticBody2D" parent="Points" unique_id=1481767894]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point41" unique_id=1126462768]
-position = Vector2(1472, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point42" type="StaticBody2D" parent="Points" unique_id=1094030262]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point42" unique_id=2002300342]
-position = Vector2(1856, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point43" type="StaticBody2D" parent="Points" unique_id=753052965]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point43" unique_id=1579958112]
-position = Vector2(1792, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point44" type="StaticBody2D" parent="Points" unique_id=771152848]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point44" unique_id=704382347]
-position = Vector2(1664, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point45" type="StaticBody2D" parent="Points" unique_id=1553859665]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point45" unique_id=1640095190]
-position = Vector2(1536, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point46" type="StaticBody2D" parent="Points" unique_id=1040737644]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point46" unique_id=1692060596]
-position = Vector2(1408, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point47" type="StaticBody2D" parent="Points" unique_id=1154422221]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point47" unique_id=179178154]
-position = Vector2(1280, 256)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point48" type="StaticBody2D" parent="Points" unique_id=300812295]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point48" unique_id=1375908767]
-position = Vector2(960, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point49" type="StaticBody2D" parent="Points" unique_id=470223776]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point49" unique_id=2067192615]
-position = Vector2(1856, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point50" type="StaticBody2D" parent="Points" unique_id=422999623]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point50" unique_id=1757163813]
-position = Vector2(1728, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point51" type="StaticBody2D" parent="Points" unique_id=193281580]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point51" unique_id=162437425]
-position = Vector2(1472, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point52" type="StaticBody2D" parent="Points" unique_id=1320286374]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point52" unique_id=722365120]
-position = Vector2(1600, 544)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point53" type="StaticBody2D" parent="Points" unique_id=1211047673]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point53" unique_id=1312300406]
-position = Vector2(1792, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point54" type="StaticBody2D" parent="Points" unique_id=182119927]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point54" unique_id=929490585]
-position = Vector2(1664, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point55" type="StaticBody2D" parent="Points" unique_id=1389215507]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point55" unique_id=194485916]
-position = Vector2(1536, 448)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="Point56" type="StaticBody2D" parent="Points" unique_id=1783753733]
-script = ExtResource("5_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points/Point56" unique_id=858924131]
-position = Vector2(1728, 352)
-shape = SubResource("CircleShape2D_prv06")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Points" unique_id=1634127912]
+[node name="CollisionShape2D" type="Marker2D" parent="Points" unique_id=360629469]
 position = Vector2(1024, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Points" unique_id=1185153536]
+[node name="CollisionShape2D2" type="Marker2D" parent="Points" unique_id=371485014]
 position = Vector2(1152, 640)
-shape = SubResource("CircleShape2D_2okng")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Points" unique_id=2077439124]
+[node name="CollisionShape2D3" type="Marker2D" parent="Points" unique_id=616004734]
 position = Vector2(896, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Points" unique_id=903372968]
+[node name="CollisionShape2D4" type="Marker2D" parent="Points" unique_id=977010581]
 position = Vector2(768, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Points" unique_id=620834719]
+[node name="CollisionShape2D5" type="Marker2D" parent="Points" unique_id=1756093734]
 position = Vector2(640, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Points" unique_id=323182166]
+[node name="CollisionShape2D6" type="Marker2D" parent="Points" unique_id=1626327645]
 position = Vector2(512, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Points" unique_id=436698844]
+[node name="CollisionShape2D7" type="Marker2D" parent="Points" unique_id=1753716330]
 position = Vector2(384, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Points" unique_id=157144759]
+[node name="CollisionShape2D8" type="Marker2D" parent="Points" unique_id=980142789]
 position = Vector2(256, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Points" unique_id=1764507882]
+[node name="CollisionShape2D9" type="Marker2D" parent="Points" unique_id=1883385274]
 position = Vector2(128, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Points" unique_id=1995689666]
+[node name="CollisionShape2D10" type="Marker2D" parent="Points" unique_id=1711830349]
 position = Vector2(832, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="Points" unique_id=958079253]
+[node name="CollisionShape2D11" type="Marker2D" parent="Points" unique_id=1238209222]
 position = Vector2(704, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="Points" unique_id=1734459357]
+[node name="CollisionShape2D12" type="Marker2D" parent="Points" unique_id=1341436924]
 position = Vector2(576, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="Points" unique_id=1906433528]
+[node name="CollisionShape2D13" type="Marker2D" parent="Points" unique_id=1763886032]
 position = Vector2(448, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="Points" unique_id=1043941979]
+[node name="CollisionShape2D14" type="Marker2D" parent="Points" unique_id=2015538853]
 position = Vector2(320, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D15" type="CollisionShape2D" parent="Points" unique_id=125751081]
+[node name="CollisionShape2D15" type="Marker2D" parent="Points" unique_id=682205096]
 position = Vector2(192, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D37" type="CollisionShape2D" parent="Points" unique_id=1253950743]
+[node name="CollisionShape2D37" type="Marker2D" parent="Points" unique_id=573698941]
 position = Vector2(1344, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D38" type="CollisionShape2D" parent="Points" unique_id=1614111610]
+[node name="CollisionShape2D38" type="Marker2D" parent="Points" unique_id=2053346888]
 position = Vector2(1216, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D39" type="CollisionShape2D" parent="Points" unique_id=336454393]
+[node name="CollisionShape2D39" type="Marker2D" parent="Points" unique_id=1386798665]
 position = Vector2(1088, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D40" type="CollisionShape2D" parent="Points" unique_id=846176374]
+[node name="CollisionShape2D40" type="Marker2D" parent="Points" unique_id=2036541110]
 position = Vector2(1600, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D41" type="CollisionShape2D" parent="Points" unique_id=1337168600]
+[node name="CollisionShape2D41" type="Marker2D" parent="Points" unique_id=1410800333]
 position = Vector2(1472, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D42" type="CollisionShape2D" parent="Points" unique_id=309116318]
+[node name="CollisionShape2D42" type="Marker2D" parent="Points" unique_id=1489585163]
 position = Vector2(1856, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D43" type="CollisionShape2D" parent="Points" unique_id=1472394567]
+[node name="CollisionShape2D43" type="Marker2D" parent="Points" unique_id=1916982163]
 position = Vector2(1792, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D44" type="CollisionShape2D" parent="Points" unique_id=131042972]
+[node name="CollisionShape2D44" type="Marker2D" parent="Points" unique_id=1180513038]
 position = Vector2(1664, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D45" type="CollisionShape2D" parent="Points" unique_id=1901082582]
+[node name="CollisionShape2D45" type="Marker2D" parent="Points" unique_id=1517824117]
 position = Vector2(1536, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D46" type="CollisionShape2D" parent="Points" unique_id=227080494]
+[node name="CollisionShape2D46" type="Marker2D" parent="Points" unique_id=1898546171]
 position = Vector2(1408, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D47" type="CollisionShape2D" parent="Points" unique_id=1094632206]
+[node name="CollisionShape2D47" type="Marker2D" parent="Points" unique_id=1423902236]
 position = Vector2(1280, 640)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D48" type="CollisionShape2D" parent="Points" unique_id=1464834790]
+[node name="CollisionShape2D48" type="Marker2D" parent="Points" unique_id=304204430]
 position = Vector2(960, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="CollisionShape2D56" type="CollisionShape2D" parent="Points" unique_id=1039857444]
+[node name="CollisionShape2D56" type="Marker2D" parent="Points" unique_id=1932565267]
 position = Vector2(1728, 736)
-shape = SubResource("CircleShape2D_prv06")
 
-[node name="LeftBound" type="Area2D" parent="." unique_id=223549423]
-position = Vector2(87, 114)
+[node name="CollisionShape2D16" type="Marker2D" parent="Points" unique_id=330089981]
+position = Vector2(1152, 256)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBound" unique_id=1836359660]
-position = Vector2(0, -6.209999)
-scale = Vector2(1, 0.52)
-shape = SubResource("RectangleShape2D_2okng")
+[node name="CollisionShape2D17" type="Marker2D" parent="Points" unique_id=946922930]
+position = Vector2(1026, 450)
 
-[node name="RightBound" type="Area2D" parent="." unique_id=1724451899]
-position = Vector2(1834, 125)
+[node name="CollisionShape2D18" type="Marker2D" parent="Points" unique_id=1485436784]
+position = Vector2(1154, 450)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBound" unique_id=252758582]
-position = Vector2(0, -20)
-scale = Vector2(1.6061243, -0.111295275)
-shape = SubResource("RectangleShape2D_j1w1j")
+[node name="CollisionShape2D19" type="Marker2D" parent="Points" unique_id=1461782238]
+position = Vector2(898, 450)
 
-[connection signal="body_entered" from="LeftBound" to="Disc" method="_on_left_bound_body_entered"]
-[connection signal="body_entered" from="RightBound" to="Disc" method="_on_right_bound_body_entered"]
+[node name="CollisionShape2D20" type="Marker2D" parent="Points" unique_id=1146443017]
+position = Vector2(770, 450)
+
+[node name="CollisionShape2D21" type="Marker2D" parent="Points" unique_id=1288531629]
+position = Vector2(642, 450)
+
+[node name="CollisionShape2D22" type="Marker2D" parent="Points" unique_id=109645828]
+position = Vector2(514, 450)
+
+[node name="CollisionShape2D23" type="Marker2D" parent="Points" unique_id=53571321]
+position = Vector2(386, 450)
+
+[node name="CollisionShape2D24" type="Marker2D" parent="Points" unique_id=2042964798]
+position = Vector2(258, 450)
+
+[node name="CollisionShape2D25" type="Marker2D" parent="Points" unique_id=1603276571]
+position = Vector2(130, 450)
+
+[node name="CollisionShape2D26" type="Marker2D" parent="Points" unique_id=1420751072]
+position = Vector2(834, 546)
+
+[node name="CollisionShape2D27" type="Marker2D" parent="Points" unique_id=1604819285]
+position = Vector2(706, 546)
+
+[node name="CollisionShape2D28" type="Marker2D" parent="Points" unique_id=671294288]
+position = Vector2(578, 546)
+
+[node name="CollisionShape2D29" type="Marker2D" parent="Points" unique_id=1221471463]
+position = Vector2(450, 546)
+
+[node name="CollisionShape2D30" type="Marker2D" parent="Points" unique_id=1748616469]
+position = Vector2(322, 546)
+
+[node name="CollisionShape2D31" type="Marker2D" parent="Points" unique_id=2004405387]
+position = Vector2(194, 546)
+
+[node name="CollisionShape2D49" type="Marker2D" parent="Points" unique_id=973436283]
+position = Vector2(1346, 546)
+
+[node name="CollisionShape2D50" type="Marker2D" parent="Points" unique_id=1993773362]
+position = Vector2(1218, 546)
+
+[node name="CollisionShape2D51" type="Marker2D" parent="Points" unique_id=690415372]
+position = Vector2(1090, 546)
+
+[node name="CollisionShape2D52" type="Marker2D" parent="Points" unique_id=156315775]
+position = Vector2(1602, 546)
+
+[node name="CollisionShape2D53" type="Marker2D" parent="Points" unique_id=1805391064]
+position = Vector2(1474, 546)
+
+[node name="CollisionShape2D54" type="Marker2D" parent="Points" unique_id=990705697]
+position = Vector2(1858, 546)
+
+[node name="CollisionShape2D55" type="Marker2D" parent="Points" unique_id=575188744]
+position = Vector2(1794, 450)
+
+[node name="CollisionShape2D57" type="Marker2D" parent="Points" unique_id=960402444]
+position = Vector2(1666, 450)
+
+[node name="CollisionShape2D58" type="Marker2D" parent="Points" unique_id=736231414]
+position = Vector2(1538, 450)
+
+[node name="CollisionShape2D59" type="Marker2D" parent="Points" unique_id=371061762]
+position = Vector2(1410, 450)
+
+[node name="CollisionShape2D60" type="Marker2D" parent="Points" unique_id=550332631]
+position = Vector2(1282, 450)
+
+[node name="CollisionShape2D61" type="Marker2D" parent="Points" unique_id=1515498136]
+position = Vector2(962, 546)
+
+[node name="CollisionShape2D62" type="Marker2D" parent="Points" unique_id=1110362012]
+position = Vector2(1730, 546)
+
+[node name="CollisionShape2D32" type="Marker2D" parent="Points" unique_id=1691902758]
+position = Vector2(1026, 258)
+
+[node name="CollisionShape2D33" type="Marker2D" parent="Points" unique_id=165113606]
+position = Vector2(1154, 258)
+
+[node name="CollisionShape2D34" type="Marker2D" parent="Points" unique_id=855198814]
+position = Vector2(898, 258)
+
+[node name="CollisionShape2D35" type="Marker2D" parent="Points" unique_id=1770945340]
+position = Vector2(770, 258)
+
+[node name="CollisionShape2D36" type="Marker2D" parent="Points" unique_id=1369001169]
+position = Vector2(642, 258)
+
+[node name="CollisionShape2D63" type="Marker2D" parent="Points" unique_id=1735376428]
+position = Vector2(514, 258)
+
+[node name="CollisionShape2D64" type="Marker2D" parent="Points" unique_id=501971438]
+position = Vector2(386, 258)
+
+[node name="CollisionShape2D65" type="Marker2D" parent="Points" unique_id=1436183534]
+position = Vector2(258, 258)
+
+[node name="CollisionShape2D66" type="Marker2D" parent="Points" unique_id=956825069]
+position = Vector2(130, 258)
+
+[node name="CollisionShape2D67" type="Marker2D" parent="Points" unique_id=408089281]
+position = Vector2(834, 354)
+
+[node name="CollisionShape2D68" type="Marker2D" parent="Points" unique_id=630632187]
+position = Vector2(706, 354)
+
+[node name="CollisionShape2D69" type="Marker2D" parent="Points" unique_id=1672992154]
+position = Vector2(578, 354)
+
+[node name="CollisionShape2D70" type="Marker2D" parent="Points" unique_id=774893766]
+position = Vector2(450, 354)
+
+[node name="CollisionShape2D71" type="Marker2D" parent="Points" unique_id=338362486]
+position = Vector2(322, 354)
+
+[node name="CollisionShape2D72" type="Marker2D" parent="Points" unique_id=770068280]
+position = Vector2(194, 354)
+
+[node name="CollisionShape2D73" type="Marker2D" parent="Points" unique_id=514559816]
+position = Vector2(1346, 354)
+
+[node name="CollisionShape2D74" type="Marker2D" parent="Points" unique_id=1612660502]
+position = Vector2(1218, 354)
+
+[node name="CollisionShape2D75" type="Marker2D" parent="Points" unique_id=603928965]
+position = Vector2(1090, 354)
+
+[node name="CollisionShape2D76" type="Marker2D" parent="Points" unique_id=1930848759]
+position = Vector2(1602, 354)
+
+[node name="CollisionShape2D77" type="Marker2D" parent="Points" unique_id=655637888]
+position = Vector2(1474, 354)
+
+[node name="CollisionShape2D78" type="Marker2D" parent="Points" unique_id=1500266376]
+position = Vector2(1858, 354)
+
+[node name="CollisionShape2D79" type="Marker2D" parent="Points" unique_id=1188240892]
+position = Vector2(1794, 258)
+
+[node name="CollisionShape2D80" type="Marker2D" parent="Points" unique_id=1525856317]
+position = Vector2(1666, 258)
+
+[node name="CollisionShape2D81" type="Marker2D" parent="Points" unique_id=1707669288]
+position = Vector2(1538, 258)
+
+[node name="CollisionShape2D82" type="Marker2D" parent="Points" unique_id=1885841326]
+position = Vector2(1410, 258)
+
+[node name="CollisionShape2D83" type="Marker2D" parent="Points" unique_id=2083449536]
+position = Vector2(1282, 258)
+
+[node name="CollisionShape2D84" type="Marker2D" parent="Points" unique_id=514607111]
+position = Vector2(962, 354)
+
+[node name="CollisionShape2D85" type="Marker2D" parent="Points" unique_id=6530153]
+position = Vector2(1730, 354)
+
+[connection signal="body_entered" from="Board/LeftBound" to="Disc" method="_on_left_bound_body_entered"]
+[connection signal="body_entered" from="Board/RightBound" to="Disc" method="_on_right_bound_body_entered"]

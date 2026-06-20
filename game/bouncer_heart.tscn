@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b23ni57420un4"]
+
+[ext_resource type="Texture2D" uid="uid://w15awgukcsgo" path="res://assets/plinko/bouncer_heart.png" id="1_fic2q"]
+
+[node name="BouncerHeart" type="StaticBody2D" unique_id=252649284]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=345493998]
+texture_filter = 3
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_fic2q")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=826891453]
+polygon = PackedVector2Array(0, -12, 6, -18, 14, -18, 18, -14, 18, -6, 2, 10, 2, 13, 4, 15, 4, 18, -4, 18, -4, 15, -2, 13, -2, 9, -18, -6, -18, -13, -13, -18, -6, -18)
