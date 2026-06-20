@@ -11,9 +11,10 @@ var suites = ["Clubs", "Diamonds", "Hearts", "Spades"]
 @onready var loser_hand
 @onready var winner = SaveData.recent_winner
 @onready var game_over: bool = false
-@onready var current: Node2D = $"."
 @export var card: PackedScene
 @export var shop_scene: PackedScene
+
+signal minigame_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -52,11 +53,8 @@ func _process(delta: float) -> void:
 		
 	if right_hand.get_meta("blocked") and left_hand.get_meta("blocked") and game_over != true:
 		determine_winner()
-		#remove_child(current)
-		#var maingame = load("res://game/ponggame.tscn")
-		get_tree().change_scene_to_file("res://game/shop.tscn")
-		#current = maingame.instantiate()
-		#add_child(current)
+		minigame_over.emit()
+		#get_tree().change_scene_to_file("res://game/shop.tscn")
 		
 
 func generate_card() -> Card:

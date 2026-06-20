@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bap0g0u8e0gau"]
 
 [ext_resource type="Script" uid="uid://q3iesvkrhela" path="res://game/blackjack.gd" id="1_dibf1"]
-[ext_resource type="Texture2D" uid="uid://cp5j1ax5w2xgj" path="res://assets/backdrops/blackjack1.png" id="3_86577"]
+[ext_resource type="Texture2D" uid="uid://4largdkf2y6" path="res://assets/backdrops/blackjack.png" id="2_k8o0r"]
 
 [node name="Blackjack" type="Node2D" unique_id=1561088797]
 script = ExtResource("1_dibf1")
@@ -13,7 +13,7 @@ layer = -1
 texture_filter = 3
 position = Vector2(965.37506, 540.50006)
 scale = Vector2(3.008203, 2.9861112)
-texture = ExtResource("3_86577")
+texture = ExtResource("2_k8o0r")
 
 [node name="loser_hand" type="Node2D" parent="." unique_id=285075487]
 texture_filter = 3
