@@ -24,10 +24,12 @@ func _process(delta: float) -> void:
 
 
 func _on_game_game_won(player: String) -> void:
-	remove_child(current)
+	SaveData.recent_winner = player
+	get_tree().change_scene_to_file("res://game/blackjack.tscn")
 	#var minigame_options = [blackjack_scene, plinko_scene]
 	#var minigame = minigame_options.pick_random()
-	var minigame = plinko_scene
-	current = minigame.instantiate()
-	add_child(current)
+	#var minigame = plinko_scene
+	#var minigame = blackjack_scene
+	#current = minigame.instantiate()
+	#add_child(current)
 	

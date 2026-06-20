@@ -64,18 +64,18 @@ func restart(restart_direction: String) -> void:
 func _on_left_goal_body_entered(_body: Node2D) -> void:
 	left_score -= 1
 	left_score_label.text = str(left_score)
+	score_sfx.play()
 	if left_score < 1:
 		print("Left loses #loser")
 		game_won.emit("right")
-	score_sfx.play()
 	restart.call_deferred("Right")
 
 
 func _on_right_goal_body_entered(_body: Node2D) -> void:
 	right_score -= 1
 	right_score_label.text = str(right_score)
+	score_sfx.play()
 	if right_score < 1:
 		print("Right loses #loser")
 		game_won.emit("left")
-	score_sfx.play()
 	restart.call_deferred("Left")
