@@ -52,9 +52,11 @@ func _process(delta: float) -> void:
 		right_hit(right_hand)
 		
 	if right_hand.get_meta("blocked") and left_hand.get_meta("blocked") and game_over != true:
+		game_over = true
 		determine_winner()
+		while Input.is_action_just_released("space") != true:
+			pass
 		minigame_over.emit()
-		#get_tree().change_scene_to_file("res://game/shop.tscn")
 		
 
 func generate_card() -> Card:
