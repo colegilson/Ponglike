@@ -1,4 +1,7 @@
 extends Node2D
+@export var shop: PackedScene
+@export var minigames: PackedScene
+@export var game: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
