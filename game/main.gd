@@ -24,10 +24,10 @@ func _process(delta: float) -> void:
 
 
 func _on_game_game_won(player: String) -> void:
-	remove_child(current)
+	remove_child.call_deferred(current)
 	#var minigame_options = [blackjack_scene, plinko_scene]
 	#var minigame = minigame_options.pick_random()
 	var minigame = plinko_scene
 	current = minigame.instantiate()
-	add_child(current)
+	add_child.call_deferred(current)
 	

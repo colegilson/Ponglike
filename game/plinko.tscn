@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cutpg2mkwb254"]
 
 [ext_resource type="Script" uid="uid://bw8wdovh1bpbt" path="res://game/plinko.gd" id="1_gkm67"]
-[ext_resource type="Texture2D" uid="uid://cpdemkx5f4kyy" path="res://assets/backdrops/plinko.png" id="1_k0jfd"]
 [ext_resource type="PhysicsMaterial" uid="uid://03bdafpyhnjy" path="res://discmaterial.tres" id="3_2okng"]
 [ext_resource type="Script" uid="uid://bp2osx2nvvsvk" path="res://game/disc.gd" id="3_prv06"]
 [ext_resource type="Texture2D" uid="uid://qdcd47ntd8hh" path="res://assets/plinko/disc.png" id="4_prv06"]
@@ -9,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://b2w8m41rl20nh" path="res://game/bouncer_diamond.tscn" id="5_jfck1"]
 [ext_resource type="PackedScene" uid="uid://rk3pd6lignyn" path="res://game/bouncer_spade.tscn" id="7_7673t"]
 [ext_resource type="PackedScene" uid="uid://dm2kb05uho7g6" path="res://game/bouncer_club.tscn" id="8_56nrw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jfck1"]
+load_path = "res://.godot/imported/plinko.png-85a228d0c5bd72106db8551e0d014ba3.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2okng"]
 size = Vector2(17, 131.57693)
@@ -27,7 +29,7 @@ bouncers = Array[PackedScene]([ExtResource("7_7673t"), ExtResource("8_56nrw"), E
 texture_filter = 3
 position = Vector2(965.37506, 540.50006)
 scale = Vector2(3.008203, 2.9861112)
-texture = ExtResource("1_k0jfd")
+texture = SubResource("CompressedTexture2D_jfck1")
 
 [node name="Board" type="Node2D" parent="." unique_id=1741025145]
 

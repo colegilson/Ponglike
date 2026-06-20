@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c0ol8vaokdfgv"]
+
+[node name="UI" type="CanvasLayer" unique_id=1448638293]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=78746657]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=1129526634]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TopText" type="RichTextLabel" parent="TextureRect/VBoxContainer" unique_id=1921954015]
+layout_mode = 2
+
+[node name="BottomText" type="RichTextLabel" parent="TextureRect/VBoxContainer" unique_id=8024568]
+layout_mode = 2
+
+[node name="Player1" type="TextureButton" parent="TextureRect/VBoxContainer" unique_id=297610980]
+layout_mode = 2
+
+[node name="Player2" type="TextureButton" parent="TextureRect/VBoxContainer" unique_id=482288474]
+layout_mode = 2
