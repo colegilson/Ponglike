@@ -56,12 +56,13 @@ func restart(restart_direction: String) -> void:
 
 
 # Restart the game on either goal being entered
-# Update the oppsite sides score
+# Update the score
 # The goals have a collision mask for just the ball
 func _on_left_goal_body_entered(_body: Node2D) -> void:
 	left_score -= 1
 	left_score_label.text = str(left_score)
-	if left_score > 1:
+	if left_score < 1:
+		print("Left loses #loser")
 		pass # Declare Winner, switch to minigame
 	score_sfx.play()
 	restart.call_deferred("Right")
@@ -70,7 +71,8 @@ func _on_left_goal_body_entered(_body: Node2D) -> void:
 func _on_right_goal_body_entered(_body: Node2D) -> void:
 	right_score -= 1
 	right_score_label.text = str(right_score)
-	if right_score > 1:
+	if right_score < 1:
+		print("Right loses #loser")
 		pass # Declare Winner, switch to minigame
 	score_sfx.play()
 	restart.call_deferred("Left")
