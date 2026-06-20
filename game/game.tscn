@@ -2,12 +2,8 @@
 
 [ext_resource type="Script" uid="uid://wfjldi85v32v" path="res://game/main.gd" id="1_4fuuu"]
 [ext_resource type="PackedScene" uid="uid://7pogsoegqivl" path="res://game/ponggame.tscn" id="2_dakft"]
-[ext_resource type="PackedScene" uid="uid://bk4p8n8kujxie" path="res://game/minigames.tscn" id="3_dakft"]
 
 [node name="Main" type="Node2D" unique_id=1282590189]
 script = ExtResource("1_4fuuu")
-shop = ExtResource("2_dakft")
-minigames = ExtResource("3_dakft")
-game = null
 
 [node name="Game" parent="." unique_id=1213146880 instance=ExtResource("2_dakft")]

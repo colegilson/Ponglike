@@ -10,4 +10,4 @@
 
 [node name="Blackjack" parent="." unique_id=1561088797 instance=ExtResource("2_qo22h")]
 
-[node name="Node2D" parent="." unique_id=1815869276 instance=ExtResource("3_phr0i")]
+[node name="Roulette" parent="." unique_id=1815869276 instance=ExtResource("3_phr0i")]

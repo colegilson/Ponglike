@@ -8,6 +8,8 @@ var ball: Ball = null
 var left_score: int = 0
 var right_score: int = 0
 
+signal game_won
+
 @onready var left_score_label: Label = %LeftScoreLabel
 @onready var right_score_label: Label = %RightScoreLabel
 @onready var ball_spawn_position: Marker2D = %BallSpawnPosition
@@ -62,7 +64,7 @@ func _on_left_goal_body_entered(_body: Node2D) -> void:
 	right_score -= 1
 	right_score_label.text = str(right_score)
 	if right_score > 1:
-		pass # Declare Winner, switch to minigame
+		game_won.emit("right")
 	score_sfx.play()
 	restart.call_deferred("Right")
 
@@ -71,6 +73,6 @@ func _on_right_goal_body_entered(_body: Node2D) -> void:
 	left_score -= 1
 	left_score_label.text = str(left_score)
 	if left_score > 1:
-		pass # Declare Winner, switch to minigame
+		game_won.emit("left")
 	score_sfx.play()
 	restart.call_deferred("Left")
