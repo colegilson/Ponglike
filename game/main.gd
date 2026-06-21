@@ -4,6 +4,9 @@ extends Node2D
 @export var plinko_scene: PackedScene
 @export var game_scene: PackedScene
 @onready var current: Node2D = $Game
+@onready var ui: CanvasLayer = $UI
+@onready var ringo_L: AnimatableBody2D = $Ringo
+@onready var ringo_R: AnimatableBody2D = $Ringo2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,9 +30,21 @@ func _on_game_game_won(player: String) -> void:
 	current = minigame.instantiate()
 	add_child.call_deferred(current)
 	current.minigame_over.connect(_on_minigame_over)
+	balance_update(player, 5)
 
 func _on_minigame_over() -> void:
 	remove_child.call_deferred(current)
 	var shop = shop_scene
 	current = shop.instantiate()
 	add_child.call_deferred(current)
+
+func balance_update(player: String, amount: int) -> void:
+	print("updating {player} balance to {amount}")
+	match player:
+		"left":
+			SaveData.money_left+=5
+			ringo_L.set_call_deferred.forward_flip()
+
+		"right":
+			SaveData.money_right+=5
+			ringo_R.set_call_deferred.forward_flip()

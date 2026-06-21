@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0ol8vaokdfgv"]
 
 [ext_resource type="Script" uid="uid://dbnk6wax52mjr" path="res://game/player_1_coins.gd" id="1_06to5"]
+[ext_resource type="FontFile" uid="uid://dg53ws10sabxb" path="res://assets/ui/ScrollPixel.ttf" id="1_ck4rf"]
 [ext_resource type="Script" uid="uid://bj62ugm4ndlsy" path="res://game/player_2_coins.gd" id="2_rifgy"]
 
 [node name="UI" type="CanvasLayer" unique_id=1448638293]
@@ -27,17 +28,36 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1648256510]
-offset_right = 40.0
-offset_bottom = 40.0
+texture_filter = 3
+offset_left = 11.0
+offset_top = 1.0
+offset_right = 51.0
+offset_bottom = 50.0
+scale = Vector2(8.543801, 6.551246)
 
-[node name="Player1Coins" type="Label" parent="HBoxContainer" unique_id=2016442981]
-layout_mode = 2
+[node name="Player1Coins" type="Label" parent="." unique_id=2016442981]
+texture_filter = 1
+offset_left = 232.0
+offset_top = -1.0
+offset_right = 297.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(1, 0.74509805, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("1_ck4rf")
+theme_override_font_sizes/font_size = 60
 text = "69
 "
+autowrap_trim_flags = 0
 script = ExtResource("1_06to5")
 
-[node name="Player2Coins" type="Label" parent="HBoxContainer" unique_id=163920954]
-layout_mode = 2
+[node name="Player2Coins" type="Label" parent="." unique_id=163920954]
+texture_filter = 1
+offset_left = 1579.0
+offset_top = -1.0
+offset_right = 1644.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(1, 0.74509805, 0.1254902, 1)
+theme_override_fonts/font = ExtResource("1_ck4rf")
+theme_override_font_sizes/font_size = 60
 text = "69
 "
 script = ExtResource("2_rifgy")
