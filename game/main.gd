@@ -3,10 +3,7 @@ extends Node2D
 @export var blackjack_scene: PackedScene
 @export var plinko_scene: PackedScene
 @export var game_scene: PackedScene
-@export var possible_balls: Array[BallData]
-@export var possible_sticks: Array[BallData]
 @onready var current: Node2D = $Game
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

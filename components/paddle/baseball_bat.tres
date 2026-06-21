@@ -5,7 +5,6 @@
 
 [resource]
 script = ExtResource("1_16h2x")
-sprite = ExtResource("2_16h2x")
 return_speed = 100.0
 sprite = ExtResource("2_16h2x")
 metadata/_custom_type_script = "uid://bequy0mvsuqv"

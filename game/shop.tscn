@@ -1,29 +1,11 @@
 [gd_scene format=3 uid="uid://dyg3lqps5j3aj"]
 
-[ext_resource type="Script" uid="uid://coxsev5s4bqqv" path="res://game/shop.gd" id="1_a73qu"]
 [ext_resource type="Texture2D" uid="uid://ddvkhlsb0swpv" path="res://assets/backdrops/shop1.png" id="1_ungis"]
-[ext_resource type="PackedScene" uid="uid://ct6nm7leyyj71" path="res://game/shop_ball.tscn" id="3_tpr7e"]
-[ext_resource type="Script" uid="uid://baa50lgmgtuvq" path="res://game/shop_ball.gd" id="4_itk1t"]
-[ext_resource type="Resource" uid="uid://b4khgv6h6e5ru" path="res://components/ball/baseball.tres" id="5_ew5oi"]
-[ext_resource type="Resource" uid="uid://bi2uiw0us8evn" path="res://components/ball/8ball.tres" id="6_tpr7e"]
 
 [node name="Shop" type="Node2D" unique_id=1331112119]
-script = ExtResource("1_a73qu")
 
 [node name="ShopBG" type="Sprite2D" parent="." unique_id=264251308]
 texture_filter = 3
 position = Vector2(960.5, 541.50006)
 scale = Vector2(4.0020833, 4.011111)
 texture = ExtResource("1_ungis")
-
-[node name="ShopBall" parent="ShopBG" unique_id=919586625 instance=ExtResource("3_tpr7e")]
-position = Vector2(-154.29463, -20.318579)
-script = ExtResource("4_itk1t")
-ball_data = ExtResource("5_ew5oi")
-
-[node name="ShopBall2" parent="ShopBG" unique_id=894635039 instance=ExtResource("3_tpr7e")]
-position = Vector2(-154.29465, -62.45154)
-script = ExtResource("4_itk1t")
-ball_data = ExtResource("6_tpr7e")
-
-[node name="Marker2D" type="Marker2D" parent="." unique_id=2044113207]
