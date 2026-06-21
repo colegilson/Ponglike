@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BallData" format=3 uid="uid://ddnrujrst7nfe"]
+
+[ext_resource type="Script" uid="uid://dux51mmq1wlk1" path="res://components/ball/ball_data.gd" id="1_g11y7"]
+[ext_resource type="Texture2D" uid="uid://bd160f108nil1" path="res://assets/balls/ringoball.png" id="2_nrron"]
+
+[resource]
+script = ExtResource("1_g11y7")
+name = "Ringo"
+sprite = ExtResource("2_nrron")
+metadata/_custom_type_script = "uid://dux51mmq1wlk1"

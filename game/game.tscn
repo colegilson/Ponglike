@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bap0g0u8e0gau" path="res://game/blackjack.tscn" id="3_dxrkv"]
 [ext_resource type="PackedScene" uid="uid://cutpg2mkwb254" path="res://game/plinko.tscn" id="4_dakft"]
 [ext_resource type="PackedScene" uid="uid://c0ol8vaokdfgv" path="res://game/ui.tscn" id="6_y36n6"]
-[ext_resource type="Script" uid="uid://bcxysbbvi7pms" path="res://game/ringo.gd" id="7_l8g03"]
+[ext_resource type="Script" path="res://game/ringo.gd" id="7_l8g03"]
 [ext_resource type="SpriteFrames" uid="uid://dd2e0q5845bjw" path="res://game/ringo.tres" id="8_j8tme"]
 
 [node name="Main" type="Node2D" unique_id=1282590189]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ct6nm7leyyj71"]
+
+[ext_resource type="Texture2D" uid="uid://dtfwiabf0cd75" path="res://assets/balls/8ball.png" id="1_1bluv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tqf2i"]
+radius = 8.0
+
+[node name="ShopBall" type="Area2D" unique_id=538363930]
+
+[node name="BallSkin" type="Sprite2D" parent="." unique_id=904709222]
+texture_filter = 1
+texture = ExtResource("1_1bluv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492773973]
+shape = SubResource("CircleShape2D_tqf2i")

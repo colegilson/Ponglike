@@ -1,11 +1,57 @@
 [gd_scene format=3 uid="uid://dyg3lqps5j3aj"]
 
+[ext_resource type="Script" uid="uid://coxsev5s4bqqv" path="res://game/shop.gd" id="1_ew5oi"]
 [ext_resource type="Texture2D" uid="uid://ddvkhlsb0swpv" path="res://assets/backdrops/shop1.png" id="1_ungis"]
+[ext_resource type="Script" uid="uid://dux51mmq1wlk1" path="res://components/ball/ball_data.gd" id="2_13mum"]
+[ext_resource type="Resource" uid="uid://bi2uiw0us8evn" path="res://components/ball/8ball.tres" id="3_tqf2i"]
+[ext_resource type="Resource" uid="uid://b4khgv6h6e5ru" path="res://components/ball/baseball.tres" id="4_wjx1w"]
+[ext_resource type="Resource" uid="uid://ddnrujrst7nfe" path="res://ringo.tres" id="5_13mum"]
+[ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="5_tcepo"]
+[ext_resource type="Resource" uid="uid://drwdo2jdygw28" path="res://components/paddle/snoopy.tres" id="6_ofsnm"]
+[ext_resource type="Resource" uid="uid://dirqlgknvrkj0" path="res://components/paddle/baseball_bat.tres" id="7_jmxk6"]
+[ext_resource type="PackedScene" uid="uid://ct6nm7leyyj71" path="res://game/shop_ball.tscn" id="10_tqf2i"]
+[ext_resource type="PackedScene" uid="uid://cjlji0811f2pv" path="res://game/shop_stick.tscn" id="11_wjx1w"]
 
 [node name="Shop" type="Node2D" unique_id=1331112119]
+script = ExtResource("1_ew5oi")
+possible_balls = Array[ExtResource("2_13mum")]([ExtResource("3_tqf2i"), ExtResource("4_wjx1w"), ExtResource("5_13mum")])
+possible_sticks = Array[ExtResource("5_tcepo")]([ExtResource("6_ofsnm"), ExtResource("7_jmxk6")])
 
 [node name="ShopBG" type="Sprite2D" parent="." unique_id=264251308]
 texture_filter = 3
 position = Vector2(960.5, 541.50006)
 scale = Vector2(4.0020833, 4.011111)
 texture = ExtResource("1_ungis")
+
+[node name="ShopBall" parent="." unique_id=538363930 instance=ExtResource("10_tqf2i")]
+
+[node name="BallSack" type="Node2D" parent="." unique_id=1296734782]
+
+[node name="Ball1" type="Marker2D" parent="BallSack" unique_id=607789195]
+position = Vector2(335, 303)
+
+[node name="Ball2" type="Marker2D" parent="BallSack" unique_id=2106539074]
+position = Vector2(334, 475)
+
+[node name="Ball3" type="Marker2D" parent="BallSack" unique_id=1424780852]
+position = Vector2(334, 684)
+
+[node name="Ball4" type="Marker2D" parent="BallSack" unique_id=398093842]
+position = Vector2(334, 873)
+
+[node name="SitckSitch" type="Node2D" parent="." unique_id=1405264305]
+
+[node name="Stick1" type="Marker2D" parent="SitckSitch" unique_id=623620874]
+position = Vector2(1274, 314)
+
+[node name="Stick2" type="Marker2D" parent="SitckSitch" unique_id=1564640828]
+position = Vector2(1274, 502)
+
+[node name="Stick3" type="Marker2D" parent="SitckSitch" unique_id=2083430188]
+position = Vector2(1272, 888)
+
+[node name="Stick4" type="Marker2D" parent="SitckSitch" unique_id=1164998191]
+position = Vector2(1272, 696)
+
+[node name="ShopStick" parent="." unique_id=2071711210 instance=ExtResource("11_wjx1w")]
+position = Vector2(1280, 320)
