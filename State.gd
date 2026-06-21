@@ -1,7 +1,6 @@
 @abstract
 class_name State
 extends Resource
-var paddle: CharacterBody2D = null
 var ball: CharacterBody2D = null
 
 @export var animation_name: String
@@ -14,12 +13,11 @@ func enter() #gets called by each state on entering a diff state, plays animatio
 @abstract
 func exit()
 
+
+func process(delta: float)->void:
+	pass
 	
 func switch(state_name: String):
-	if paddle:
-		paddle.active_state.exit()
-		paddle.switch_state(state_name)
-		paddle.active_state.enter()
 	if ball:
 		ball.active_state.exit()
 		ball.switch_state(state_name)

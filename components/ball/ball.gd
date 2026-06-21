@@ -1,6 +1,13 @@
 class_name Ball
 extends CharacterBody2D
 
+@export var ball_data: BallData
+
+func apply_ball_data(data: BallData):
+	ball_data = data
+	$Sprite2D.texture = data.texture
+	hit_sfx.set_stream(ball_data.sfx)
+
 
 const MOVE_SPEED: float = 550.0
 
