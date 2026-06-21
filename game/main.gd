@@ -5,8 +5,9 @@ extends Node2D
 @export var game_scene: PackedScene
 @onready var current: Node2D = $Game
 @onready var ui: CanvasLayer = $UI
-@onready var ringo_L: AnimatableBody2D = $Ringo
-@onready var ringo_R: AnimatableBody2D = $Ringo2
+@onready var ringo_L: AnimatableBody2D = $UI/Ringo
+@onready var ringo_R: AnimatableBody2D = $UI/Ringo2
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,8 +44,8 @@ func balance_update(player: String, amount: int) -> void:
 	match player:
 		"left":
 			SaveData.money_left+=5
-			ringo_L.set_call_deferred.forward_flip()
+			ringo_L.forward_flip()
 
 		"right":
 			SaveData.money_right+=5
-			ringo_R.set_call_deferred.forward_flip()
+			ringo_R.forward_flip()
