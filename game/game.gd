@@ -27,9 +27,7 @@ func _ready() -> void:
 # Control the left paddle with input
 func _process(_delta: float) -> void:
 	left_paddle.input = Input.get_axis("left_move_up", "left_move_down")
-	#print(left_paddle.input)
 	right_paddle.input = Input.get_axis("right_move_up", "right_move_down")
-	#print(right_paddle.input)
 
 
 # Spawn a new ball in a random angled direction
@@ -38,7 +36,7 @@ func spawn_ball(restart_direction: String) -> void:
 	ball.global_position = ball_spawn_position.global_position
 	add_child(ball)
 	
-	# choose NE, NW, SW, or SE direction based on goal scored on
+	# choose NE, SE, SW, or NW direction based on goal scored on
 	var starting_angle: float = 0.0
 	if restart_direction == "Right":
 		starting_angle = [3, 5].pick_random() * PI / 4.0
@@ -46,10 +44,6 @@ func spawn_ball(restart_direction: String) -> void:
 		starting_angle = [1, 7].pick_random() * PI / 4.0
 	var starting_direction := Vector2.from_angle(starting_angle)
 	ball.set_direction(starting_direction)
-	
-	# Update what the AI paddles is following
-	
-
 
 # Restart game by spawning a new ball
 func restart(restart_direction: String) -> void:
@@ -66,7 +60,7 @@ func _on_left_goal_body_entered(_body: Node2D) -> void:
 	left_score_label.text = str(left_score)
 	score_sfx.play()
 	if left_score < 1:
-		print("Left loses #loser")
+		SaveData.rounds_won_right += 1
 		game_won.emit("right")
 	restart.call_deferred("Right")
 
@@ -76,6 +70,6 @@ func _on_right_goal_body_entered(_body: Node2D) -> void:
 	right_score_label.text = str(right_score)
 	score_sfx.play()
 	if right_score < 1:
-		print("Right loses #loser")
+		SaveData.rounds_won_left += 1
 		game_won.emit("left")
 	restart.call_deferred("Left")
