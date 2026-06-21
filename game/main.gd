@@ -33,7 +33,10 @@ func _on_game_game_won(player: String) -> void:
 	current.minigame_over.connect(_on_minigame_over)
 	balance_update(player, 5)
 
+
 func _on_minigame_over() -> void:
+	balance_update("left", SaveData.left_won)
+	balance_update("right", SaveData.left_won)
 	remove_child.call_deferred(current)
 	var shop = shop_scene
 	current = shop.instantiate()

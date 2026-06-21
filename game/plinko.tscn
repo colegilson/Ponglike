@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b2w8m41rl20nh" path="res://game/bouncer_diamond.tscn" id="5_jfck1"]
 [ext_resource type="PackedScene" uid="uid://rk3pd6lignyn" path="res://game/bouncer_spade.tscn" id="7_7673t"]
 [ext_resource type="PackedScene" uid="uid://dm2kb05uho7g6" path="res://game/bouncer_club.tscn" id="8_56nrw"]
-[ext_resource type="Texture2D" uid="uid://dxk0ho0urqqex" path="res://components/ball/ball.png" id="9_co0hn"]
+[ext_resource type="Texture2D" uid="uid://cq13p1i6jibix" path="res://assets/cards/Backgrounds/Background_Green_Slot.png" id="9_7673t"]
+[ext_resource type="FontFile" uid="uid://vjjeggr5lrvg" path="res://assets/ui/ImpactfulBits.ttf" id="10_56nrw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jfck1"]
 load_path = "res://.godot/imported/plinko.png-85a228d0c5bd72106db8551e0d014ba3.ctex"
@@ -24,6 +25,10 @@ radius = 24.186773
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjtnj"]
 size = Vector2(134, 129)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aocp4"]
+font = ExtResource("10_56nrw")
+font_size = 69
 
 [node name="Plinko" type="Node2D" unique_id=787509409]
 script = ExtResource("1_gkm67")
@@ -283,23 +288,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="game_over" type="Node2D" parent="." unique_id=696656643]
-visible = false
 position = Vector2(960, 540)
 
 [node name="Sprite2D" type="Sprite2D" parent="game_over" unique_id=903111562]
+texture_filter = 1
 scale = Vector2(50, 20)
-texture = ExtResource("9_co0hn")
+texture = ExtResource("9_7673t")
 
-[node name="Label" type="Label" parent="game_over" unique_id=648875102]
-offset_left = -627.0
-offset_top = -250.0
-offset_right = 626.0
-offset_bottom = 250.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 39
+[node name="HBoxContainer" type="VBoxContainer" parent="game_over" unique_id=1169116874]
+offset_left = -528.0
+offset_top = -140.0
+offset_right = 577.0
+offset_bottom = 36.0
+
+[node name="WinText" type="Label" parent="game_over/HBoxContainer" unique_id=648875102]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_56nrw")
+theme_override_font_sizes/font_size = 101
 text = "Player 1 wins 0 Ringos!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PressSpace" type="Label" parent="game_over/HBoxContainer" unique_id=1065238286]
+layout_mode = 2
+text = "Press space"
+label_settings = SubResource("LabelSettings_aocp4")
+horizontal_alignment = 1
 
 [node name="Points" type="Node2D" parent="." unique_id=1266545476]
 

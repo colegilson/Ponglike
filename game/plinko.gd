@@ -5,6 +5,8 @@ extends Node2D
 @onready var height_apex = 0
 @onready var height_base = 0
 @onready var reward_screen: Node2D = $game_over
+@onready var win_text: Label = $game_over/HBoxContainer/WinText
+@onready var press_space: Label = $game_over/HBoxContainer/PressSpace
 
 signal minigame_over
 
@@ -27,27 +29,28 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func end_game() -> void:
-	minigame_over.emit()
 
 
 func _on_game_over(reward: int, player: String) -> void:
-	
+	var main = GameUtility.get_game()
+	main.update_balance(player, reward)
 	if player == "left":
-		reward_screen.get_child(1).text = "Player 1 wins %d Ringos!\nPress space to continue to Player 2!" % reward
+		win_text.text = "Player 1 wins %d Ringos!" % reward
+		press_space.text = "Press space to continue to Player 2!"
+		SaveData.left_won = reward
 		reward_screen.show()
-		SaveData.money_left += reward
 		await wait_for_space()
 		reward_screen.hide()
 #		restart_as P2
 	if player == "right":
-		reward_screen.get_child(1).text = "Player 2 wins %d Ringos!\nPress space to continue to Shop!" % reward
+		win_text.text = "Player 2 wins %d Ringos!" % reward
+		press_space.text = "Press space to continue to shop!"
 		reward_screen.show()
-		SaveData.money_right += reward
 		await wait_for_space()
 		reward_screen.hide()
+		SaveData.right_won = reward
+		minigame_over.emit()
 		
-		end_game()
 		
 func wait_for_space() -> void:
 	while true:
