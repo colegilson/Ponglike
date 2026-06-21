@@ -20,7 +20,12 @@ static var current_stick: BallData
 static var left_won = 0
 static var right_won = 0
 #States
-enum phase {PONG, SHOPL, SHOPR, BLACKJACK, PLINKO} #maybe add plinko phases and check these conditions for bugfixing?
+enum phase { PONG, SHOPL, SHOPR, BLACKJACK, PLINKO } #maybe add plinko phases and check these conditions for bugfixing?
+enum state { L_RECEIVE, L_EMIT, R_RECEIVE, R_EMIT }
 static var current_phase = phase.PONG
-enum game_phase {L_RECEIVE, L_EMIT, R_RECEIVE, R_EMIT}
-static var pong_phase = game_phase.L_RECEIVE
+static var pong_phase = state.L_RECEIVE
+#Shop
+static var shop_queue_left_ball: Array[BallData] = [] 
+static var shop_queue_right_ball: Array[BallData] = [] 
+static var shop_queue_left_stick: Array[StickData] = [] 
+static var shop_queue_right_stick: Array[StickData] = []

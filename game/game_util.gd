@@ -7,3 +7,4 @@ static func get_game() -> Game:
 	assert(game, "Trying to get game at an invalid time!")
 	return game #should serve to give us the main root node at any time
 	 
+#NOT WORKING THO IDK WHY

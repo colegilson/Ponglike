@@ -7,7 +7,7 @@ extends Node2D
 @onready var reward_screen: Node2D = $game_over
 @onready var win_text: Label = $game_over/HBoxContainer/WinText
 @onready var press_space: Label = $game_over/HBoxContainer/PressSpace
-
+signal balance_update
 signal minigame_over
 
 # Called when the node enters the scene tree for the first time.
@@ -32,9 +32,8 @@ func _process(delta: float) -> void:
 
 
 func _on_game_over(reward: int, player: String) -> void:
-	var main = GameUtility.get_game()
-	main.update_balance(player, reward)
 	if player == "left":
+		balance_update.emit("left", reward)
 		win_text.text = "Player 1 wins %d Ringos!" % reward
 		press_space.text = "Press space to continue to Player 2!"
 		SaveData.left_won = reward
@@ -43,6 +42,7 @@ func _on_game_over(reward: int, player: String) -> void:
 		reward_screen.hide()
 #		restart_as P2
 	if player == "right":
+		balance_update.emit("right", reward)
 		win_text.text = "Player 2 wins %d Ringos!" % reward
 		press_space.text = "Press space to continue to shop!"
 		reward_screen.show()
