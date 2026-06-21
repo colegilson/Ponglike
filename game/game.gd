@@ -21,6 +21,7 @@ signal game_won(player: String)
 
 # Game starts with a new ball spawning
 func _ready() -> void:
+	SaveData.stick_inventory_right = []
 	spawn_ball(["Right", "Left"].pick_random())
 
 

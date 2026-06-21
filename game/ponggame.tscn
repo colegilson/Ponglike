@@ -75,10 +75,12 @@ position = Vector2(960, 540)
 [node name="LeftPaddle" parent="." unique_id=1901416476 instance=ExtResource("4_6iagu")]
 unique_name_in_owner = true
 position = Vector2(25, 540)
+player = "left"
 
 [node name="RightPaddle" parent="." unique_id=768534034 instance=ExtResource("4_6iagu")]
 unique_name_in_owner = true
 position = Vector2(1895, 540)
+player = "right"
 
 [node name="TopBoundary" type="StaticBody2D" parent="." unique_id=173713236]
 position = Vector2(960, 0)

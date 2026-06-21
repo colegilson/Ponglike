@@ -11,6 +11,6 @@ static var rounds_won_left = 0
 static var rounds_won_right = 0
 static var ball_inventory_left: Array[BallData] = [] 
 static var ball_inventory_right: Array[BallData] = [] 
-static var stick_inventory_left: Array[StickData] = [] 
+static var stick_inventory_left: Array[StickData] = [load("res://components/paddle/baseball_bat.tres"), load("res://components/paddle/snoopy.tres")] 
 static var stick_inventory_right: Array[StickData] = [] 
 static var current_stick: BallData

@@ -1,7 +1,10 @@
 [gd_resource type="Resource" script_class="StickData" format=3 uid="uid://dirqlgknvrkj0"]
 
 [ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="1_16h2x"]
+[ext_resource type="Texture2D" uid="uid://1sl2opyq5q1f" path="res://assets/sticks/snoopy.png" id="2_16h2x"]
 
 [resource]
 script = ExtResource("1_16h2x")
+return_speed = 100.0
+sprite = ExtResource("2_16h2x")
 metadata/_custom_type_script = "uid://bequy0mvsuqv"
