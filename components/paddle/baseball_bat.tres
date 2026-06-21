@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="1_16h2x"]
 [ext_resource type="Texture2D" uid="uid://1sl2opyq5q1f" path="res://assets/sticks/snoopy.png" id="2_16h2x"]
-[ext_resource type="Texture2D" uid="uid://ssvxk2wy4ks1" path="res://assets/sticks/baseball_bat.png" id="2_16h2x"]
 
 [resource]
 script = ExtResource("1_16h2x")
