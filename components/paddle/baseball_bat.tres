@@ -1,9 +1,7 @@
 [gd_resource type="Resource" script_class="StickData" format=3 uid="uid://dirqlgknvrkj0"]
 
 [ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="1_16h2x"]
-[ext_resource type="Resource" uid="uid://b4khgv6h6e5ru" path="res://components/ball/baseball.tres" id="2_ndolt"]
 
 [resource]
 script = ExtResource("1_16h2x")
-synergy = ExtResource("2_ndolt")
 metadata/_custom_type_script = "uid://bequy0mvsuqv"

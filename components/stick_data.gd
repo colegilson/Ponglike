@@ -6,5 +6,4 @@ extends Resource
 @export var return_speed: float
 @export var superpower_scene: PackedScene
 @export var basic_scene: PackedScene
-@export var synergy: BallData
 @export var sprite: Texture2D

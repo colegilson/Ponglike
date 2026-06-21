@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dxk0ho0urqqex" path="res://components/ball/ball.png" id="1_nmldg"]
 [ext_resource type="Script" uid="uid://nch5x7ujtj5f" path="res://components/ball/ball.gd" id="1_usys6"]
+[ext_resource type="Resource" uid="uid://bi2uiw0us8evn" path="res://components/ball/8ball.tres" id="2_f8jx3"]
 [ext_resource type="AudioStream" uid="uid://c0ffv1l8nwtck" path="res://common/sfx/hit.wav" id="3_w6j5n"]
 [ext_resource type="Script" uid="uid://we0sfl3bhay3" path="res://components/ball/reception.gd" id="4_iqdgg"]
 [ext_resource type="Script" uid="uid://csm1oekyt4kx0" path="res://components/ball/projection.gd" id="5_wwidm"]
@@ -14,6 +15,7 @@ size = Vector2(25, 25)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_usys6")
+ball_data = ExtResource("2_f8jx3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1534334981]
 texture = ExtResource("1_nmldg")

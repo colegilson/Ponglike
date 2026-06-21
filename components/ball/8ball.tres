@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BallData" format=3 uid="uid://bi2uiw0us8evn"]
+
+[ext_resource type="Script" uid="uid://dux51mmq1wlk1" path="res://components/ball/ball_data.gd" id="1_0epe3"]
+[ext_resource type="AudioStream" uid="uid://o44jal8svjmx" path="res://common/sfx/score.wav" id="2_843xb"]
+[ext_resource type="Texture2D" uid="uid://dtfwiabf0cd75" path="res://assets/balls/8ball.png" id="3_o8q3k"]
+
+[resource]
+script = ExtResource("1_0epe3")
+name = "8Ball"
+sprite = ExtResource("3_o8q3k")
+sfx = ExtResource("2_843xb")
+metadata/_custom_type_script = "uid://dux51mmq1wlk1"
