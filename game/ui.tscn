@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://c0ol8vaokdfgv"]
 
+[ext_resource type="Script" uid="uid://dbnk6wax52mjr" path="res://game/player_1_coins.gd" id="1_06to5"]
+[ext_resource type="Script" uid="uid://bj62ugm4ndlsy" path="res://game/player_2_coins.gd" id="2_rifgy"]
+
 [node name="UI" type="CanvasLayer" unique_id=1448638293]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=78746657]
@@ -22,3 +25,19 @@ layout_mode = 2
 
 [node name="Player2" type="TextureButton" parent="TextureRect/VBoxContainer" unique_id=482288474]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1648256510]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player1Coins" type="Label" parent="HBoxContainer" unique_id=2016442981]
+layout_mode = 2
+text = "69
+"
+script = ExtResource("1_06to5")
+
+[node name="Player2Coins" type="Label" parent="HBoxContainer" unique_id=163920954]
+layout_mode = 2
+text = "69
+"
+script = ExtResource("2_rifgy")
