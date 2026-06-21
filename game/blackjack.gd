@@ -5,12 +5,13 @@ var right_score: int = 0
 
 var suites = ["Clubs", "Diamonds", "Hearts", "Spades"]
 
-@onready var right_hand: Node2D = $loser_hand
-@onready var left_hand: Node2D = $winner_hand
+@onready var right_hand: Node2D = $right_hand
+@onready var left_hand: Node2D = $left_hand
 @onready var winner_hand
 @onready var loser_hand
 @onready var winner = SaveData.recent_winner
 @onready var game_over: bool = false
+@onready var win_screen: Node2D = $game_over
 @export var card: PackedScene
 @export var shop_scene: PackedScene
 
@@ -27,8 +28,8 @@ func _ready() -> void:
 	winner_hand.set_meta("blocked", true)
 	winner_hand.get_child(0).text = "Waiting for other player to play"
 	for i in 2:
-		(right_hit(loser_hand))
-		(left_hit(winner_hand))
+		(right_hit(right_hand))
+		(left_hit(left_hand))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,8 +55,8 @@ func _process(delta: float) -> void:
 	if right_hand.get_meta("blocked") and left_hand.get_meta("blocked") and game_over != true:
 		game_over = true
 		determine_winner()
-		while Input.is_action_just_released("space") != true:
-			pass
+		await wait_for_space()
+		win_screen.hide()
 		minigame_over.emit()
 		
 
@@ -112,6 +113,20 @@ func left_hit(player) -> void:
 	var png = new_card.get_png(new_card)
 	sprite.texture = load("res://assets/cards/Sprites/%s" % png)
 	player.add_child(sprite)
+	
+func wait_for_space() -> void:
+	if right_score < left_score:
+		win_screen.get_child(1).text = "Player 1 is the winner!\nPress space to Continue!"
+	elif right_score > left_score:
+		win_screen.get_child(1).text = "Player 2 is the winner!\nPress space to Continue!"
+	else:
+		win_screen.get_child(1).text = "Its a draw! There is no winner!\nPress space to Continue!"
+	
+	win_screen.show()
+	while true:
+		await get_tree().process_frame
+		if Input.is_action_just_pressed("space"):
+			return
 
 func determine_winner() -> void:
 	if right_score > left_score:
