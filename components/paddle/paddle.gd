@@ -6,7 +6,7 @@ const MOVE_SPEED: float = 300
 
 var input: float = 0.0
 var target: Node2D = null
-
+@onready var sprite: Sprite2D = $Sprite2D
 
 # If a target is set (i.e. AI paddle), follow it
 # Otherwise rely on manual input
@@ -17,7 +17,8 @@ func _physics_process(delta: float) -> void:
 		_follow_input()
 	
 	move_and_collide(velocity * delta)
-	if Input.is_action_just_pressed("left_switch_stick") and player == "left":
+	if Input.is_action_just_pressed("left_switch_ball") and player == "left":
+		print("A pressed")
 		_switch_to_next()
 
 
@@ -36,4 +37,7 @@ func _follow_target() -> void:
 	velocity.y = direction * MOVE_SPEED
 
 func _switch_to_next()-> void:
-	pass
+	if player == "left":
+		print("Player left")
+		var index = (SaveData.stick_inventory_left.find(sprite) + 1) % SaveData.stick_inventory_left.size()
+		var sprite = SaveData.stick_inventory_left[(index)]
