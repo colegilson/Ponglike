@@ -6,10 +6,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hevo"]
 size = Vector2(50, 200)
 
+[sub_resource type="GDScript" id="GDScript_1hevo"]
+script/source = "extends Node
+"
+
 [node name="Paddle" type="CharacterBody2D" unique_id=1901416476]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_waih8")
+states = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=520121163]
 texture = ExtResource("2_1hevo")
@@ -18,3 +23,4 @@ texture = ExtResource("2_1hevo")
 shape = SubResource("RectangleShape2D_1hevo")
 
 [node name="StateMachine1" type="Node" parent="." unique_id=102217076]
+script = SubResource("GDScript_1hevo")
