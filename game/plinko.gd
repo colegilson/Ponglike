@@ -9,7 +9,7 @@ extends Node2D
 @onready var press_space: Label = $game_over/HBoxContainer/PressSpace
 signal balance_update
 signal minigame_over
-
+var current_player = SaveData.current_user
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var spots = points.get_children()

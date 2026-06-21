@@ -77,6 +77,7 @@ position = Vector2(968, 88)
 shape = SubResource("CircleShape2D_j1w1j")
 
 [node name="Timer" type="Timer" parent="Disc" unique_id=571845626]
+one_shot = true
 
 [node name="Finish" type="StaticBody2D" parent="." unique_id=677548598]
 
