@@ -29,7 +29,6 @@ radius = 24.186773
 size = Vector2(134, 129)
 
 [node name="Plinko" type="Node2D" unique_id=787509409]
-physics_interpolation_mode = 2
 auto_translate_mode = 2
 script = ExtResource("1_gkm67")
 bouncers = Array[PackedScene]([ExtResource("7_7673t"), ExtResource("8_56nrw"), ExtResource("5_co0hn"), ExtResource("5_jfck1")])

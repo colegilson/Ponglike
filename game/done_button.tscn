@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://de5jt30bk1my1"]
+
+[ext_resource type="FontFile" uid="uid://vjjeggr5lrvg" path="res://assets/ui/ImpactfulBits.ttf" id="1_xe2uv"]
+[ext_resource type="Texture2D" uid="uid://cgus487kutoeo" path="res://assets/cards/Backgrounds/switch_player_button_narrow.png" id="2_xe2uv"]
+
+[node name="DoneButton" type="Button" unique_id=589144056]
+texture_filter = 1
+offset_left = 1624.0
+offset_top = 872.0
+offset_right = 1661.0
+offset_bottom = 920.0
+theme_override_fonts/font = ExtResource("1_xe2uv")
+theme_override_font_sizes/font_size = 15
+action_mode = 0
+text = "
+"
+icon = ExtResource("2_xe2uv")
+flat = true
+autowrap_mode = 3
+icon_alignment = 1

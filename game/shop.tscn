@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ddvkhlsb0swpv" path="res://assets/backdrops/shop1.png" id="1_ungis"]
 [ext_resource type="Script" uid="uid://dux51mmq1wlk1" path="res://components/ball/ball_data.gd" id="2_13mum"]
 [ext_resource type="Resource" uid="uid://bi2uiw0us8evn" path="res://components/ball/8ball.tres" id="3_tqf2i"]
-[ext_resource type="Resource" uid="uid://b4khgv6h6e5ru" path="res://components/ball/baseball.tres" id="4_wjx1w"]
+[ext_resource type="Resource" uid="uid://dctpcbf4w4vr5" path="res://game/baseball.tres" id="4_orr83"]
 [ext_resource type="Resource" uid="uid://ddnrujrst7nfe" path="res://ringo.tres" id="5_13mum"]
 [ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="5_tcepo"]
 [ext_resource type="Resource" uid="uid://drwdo2jdygw28" path="res://components/paddle/snoopy.tres" id="6_ofsnm"]
@@ -14,11 +14,12 @@
 [ext_resource type="Resource" uid="uid://bajtf8koim8ec" path="res://game/magic_wand.tres" id="11_ofsnm"]
 [ext_resource type="FontFile" uid="uid://dg53ws10sabxb" path="res://assets/ui/ScrollPixel.ttf" id="13_jmxk6"]
 [ext_resource type="Script" uid="uid://lgss8wk3b35l" path="res://game/current_player_text.gd" id="14_orr83"]
+[ext_resource type="PackedScene" uid="uid://de5jt30bk1my1" path="res://game/done_button.tscn" id="15_orr83"]
 
 [node name="Shop" type="Node2D" unique_id=1331112119]
 z_index = 1
 script = ExtResource("1_ew5oi")
-possible_balls = Array[ExtResource("2_13mum")]([ExtResource("3_tqf2i"), ExtResource("4_wjx1w"), ExtResource("5_13mum"), ExtResource("6_tcepo")])
+possible_balls = Array[ExtResource("2_13mum")]([ExtResource("3_tqf2i"), ExtResource("4_orr83"), ExtResource("5_13mum"), ExtResource("6_tcepo")])
 possible_sticks = Array[ExtResource("5_tcepo")]([ExtResource("6_ofsnm"), ExtResource("7_jmxk6"), ExtResource("9_wjx1w"), ExtResource("11_ofsnm")])
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=16002804]
@@ -49,6 +50,16 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 script = ExtResource("14_orr83")
+
+[node name="DoneButton" parent="CanvasLayer" unique_id=589144056 instance=ExtResource("15_orr83")]
+offset_left = 1648.0
+offset_top = 824.00006
+offset_right = 1685.0
+offset_bottom = 872.00006
+scale = Vector2(7.053569, 4.575001)
+text = ""
+alignment = 0
+icon_alignment = 2
 
 [node name="BallSack" type="Node2D" parent="." unique_id=1296734782]
 
