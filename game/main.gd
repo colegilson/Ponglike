@@ -1,12 +1,13 @@
+class_name Game
 extends Node2D
 @export var shop_scene: PackedScene
 @export var blackjack_scene: PackedScene
 @export var plinko_scene: PackedScene
 @export var game_scene: PackedScene
-@onready var current: Node2D = $Game
+@onready var current: Node2D = $Pong
 @onready var ui: CanvasLayer = $UI
-@onready var ringo_L: AnimatableBody2D = $UI/Ringo
-@onready var ringo_R: AnimatableBody2D = $UI/Ringo2
+@onready var ringo_L: AnimatableBody2D = $Ringo
+@onready var ringo_R: AnimatableBody2D = $Ringo2
 enum phase { PONG, SHOPL, SHOPR, BLACKJACK, PLINKO } #maybe add plinko phases and check these conditions for bugfixing?
 enum state { L_RECEIVE, L_EMIT, R_RECEIVE, R_EMIT }
 
@@ -35,6 +36,7 @@ func _on_game_game_won(player: String) -> void:
 	add_child.call_deferred(current)
 	current.minigame_over.connect(_on_minigame_over)
 	current.balance_update.connect(balance_update)
+
 
 
 func _on_minigame_over() -> void:

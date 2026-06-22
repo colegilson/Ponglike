@@ -6,5 +6,7 @@
 [resource]
 script = ExtResource("1_g11y7")
 name = "Ringo"
+description = "Multiplying money and such things dollar dollar bill come get errr"
 sprite = ExtResource("2_nrron")
+price = 6
 metadata/_custom_type_script = "uid://dux51mmq1wlk1"

@@ -7,6 +7,8 @@
 [resource]
 script = ExtResource("1_0epe3")
 name = "8Ball"
+description = "Youre up all night to the sun to get lucky unh unh unh"
 sprite = ExtResource("3_o8q3k")
 sfx = ExtResource("2_843xb")
+price = 8
 metadata/_custom_type_script = "uid://dux51mmq1wlk1"

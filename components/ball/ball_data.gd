@@ -14,3 +14,4 @@ extends Resource
 @export var sprite: Texture2D
 @export var synergy: StickData
 @export var sfx: AudioStream
+@export var price: int

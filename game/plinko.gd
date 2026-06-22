@@ -39,6 +39,7 @@ func _on_game_over(reward: int, player: String) -> void:
 		SaveData.left_won = reward
 		reward_screen.show()
 		await wait_for_space()
+		minigame_over.emit()
 		reward_screen.hide()
 #		restart_as P2
 	if player == "right":
@@ -49,7 +50,7 @@ func _on_game_over(reward: int, player: String) -> void:
 		await wait_for_space()
 		reward_screen.hide()
 		SaveData.right_won = reward
-		minigame_over.emit()
+		#minigame_over.emit() ending game after p1 bc its broken lol
 		
 		
 func wait_for_space() -> void:

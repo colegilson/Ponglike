@@ -10,3 +10,4 @@ extends Resource
 @export var sprite: Texture2D
 @export var particle_trail: AnimatedTexture
 @export var sfx: AudioStream
+@export var price: int

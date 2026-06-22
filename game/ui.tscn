@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dbnk6wax52mjr" path="res://game/player_1_coins.gd" id="1_06to5"]
 [ext_resource type="FontFile" uid="uid://dg53ws10sabxb" path="res://assets/ui/ScrollPixel.ttf" id="1_ck4rf"]
+[ext_resource type="Script" uid="uid://cbw3khu6rgaox" path="res://game/ui.gd" id="1_m53j7"]
 [ext_resource type="Script" uid="uid://bj62ugm4ndlsy" path="res://game/player_2_coins.gd" id="2_rifgy"]
 
 [node name="UI" type="CanvasLayer" unique_id=1448638293]
+script = ExtResource("1_m53j7")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=78746657]
 offset_right = 40.0

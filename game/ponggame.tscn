@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7pogsoegqivl"]
 
-[ext_resource type="Script" uid="uid://b8qgljfi4ut1u" path="res://game/game.gd" id="1_5hk65"]
+[ext_resource type="Script" uid="uid://b8qgljfi4ut1u" path="res://game/pong.gd" id="1_5hk65"]
 [ext_resource type="PackedScene" uid="uid://dfq6d3x5qit4i" path="res://components/paddle/paddle.tscn" id="4_6iagu"]
 [ext_resource type="AudioStream" uid="uid://o44jal8svjmx" path="res://common/sfx/score.wav" id="5_ohbug"]
 
@@ -18,7 +18,7 @@ size = Vector2(50, 1080)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aocp4"]
 size = Vector2(967, 1085)
 
-[node name="Game" type="Node2D" unique_id=1213146880]
+[node name="Pong" type="Node2D" unique_id=1213146880]
 script = ExtResource("1_5hk65")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=128126426]

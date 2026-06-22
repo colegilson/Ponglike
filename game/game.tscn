@@ -9,42 +9,42 @@
 [ext_resource type="Script" path="res://game/ringo.gd" id="7_l8g03"]
 [ext_resource type="SpriteFrames" uid="uid://dd2e0q5845bjw" path="res://game/ringo.tres" id="8_j8tme"]
 
-[node name="Main" type="Node2D" unique_id=1282590189]
+[node name="Game" type="Node2D" unique_id=1282590189]
 script = ExtResource("1_4fuuu")
 shop_scene = ExtResource("2_dxrkv")
 blackjack_scene = ExtResource("3_dxrkv")
 plinko_scene = ExtResource("4_dakft")
 game_scene = ExtResource("2_dakft")
 
-[node name="Game" parent="." unique_id=1213146880 instance=ExtResource("2_dakft")]
+[node name="Pong" parent="." unique_id=1213146880 instance=ExtResource("2_dakft")]
 
 [node name="UI" parent="." unique_id=1448638293 instance=ExtResource("6_y36n6")]
 follow_viewport_scale = 223.222
 
-[node name="Ringo" type="AnimatableBody2D" parent="UI" unique_id=176965432]
+[node name="Ringo" type="AnimatableBody2D" parent="." unique_id=176965432]
 texture_filter = 1
 position = Vector2(182, 37)
 scale = Vector2(5, 5)
 script = ExtResource("7_l8g03")
 
-[node name="RingoSprite" type="AnimatedSprite2D" parent="UI/Ringo" unique_id=1914271303]
+[node name="RingoSprite" type="AnimatedSprite2D" parent="Ringo" unique_id=1914271303]
 sprite_frames = ExtResource("8_j8tme")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/Ringo" unique_id=495745938]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ringo" unique_id=495745938]
 visible = false
 polygon = PackedVector2Array(-3.0000057, -7.2000003, 2.7999935, -7.2000003, 6.199994, -3.6000004, 5.9999933, 2.999999, 0.7999935, 8.199998, -3.4000058, 8.199998, -7.6000056, 3.999999, -7.400006, -2.8000007)
 
-[node name="Ringo2" type="AnimatableBody2D" parent="UI" unique_id=422044461]
+[node name="Ringo2" type="AnimatableBody2D" parent="." unique_id=422044461]
 texture_filter = 1
 position = Vector2(1698.0001, 38)
 scale = Vector2(5, 5)
 script = ExtResource("7_l8g03")
 
-[node name="RingoSprite" type="AnimatedSprite2D" parent="UI/Ringo2" unique_id=73099938]
+[node name="RingoSprite" type="AnimatedSprite2D" parent="Ringo2" unique_id=73099938]
 sprite_frames = ExtResource("8_j8tme")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UI/Ringo2" unique_id=1326798864]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ringo2" unique_id=1326798864]
 visible = false
 polygon = PackedVector2Array(-3.0000057, -7.2000003, 2.7999935, -7.2000003, 6.199994, -3.6000004, 5.9999933, 2.999999, 0.7999935, 8.199998, -3.4000058, 8.199998, -7.6000056, 3.999999, -7.400006, -2.8000007)
 
-[connection signal="game_won" from="Game" to="." method="_on_game_game_won"]
+[connection signal="game_won" from="Pong" to="." method="_on_game_game_won"]

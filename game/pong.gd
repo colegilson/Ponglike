@@ -1,4 +1,4 @@
-class_name Game
+class_name Pong
 extends Node2D
 
 

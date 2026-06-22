@@ -4,4 +4,7 @@
 
 [resource]
 script = ExtResource("1_4vmef")
+name = "Baseball"
+description = "thwack thud bam bing bang bop wqidjyqwgdyqwgdb"
+price = 5
 metadata/_custom_type_script = "uid://dux51mmq1wlk1"

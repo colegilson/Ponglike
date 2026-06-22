@@ -54,4 +54,5 @@ position = Vector2(1272, 888)
 position = Vector2(1272, 696)
 
 [node name="ShopStick" parent="." unique_id=2071711210 instance=ExtResource("11_wjx1w")]
-position = Vector2(1280, 320)
+texture_filter = 3
+position = Vector2(1272, 312)
