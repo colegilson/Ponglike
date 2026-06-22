@@ -1,4 +1,4 @@
-extends AnimatableBody2D
+extends Node2D
 
 @onready var sprite: AnimatedSprite2D = $RingoSprite
 

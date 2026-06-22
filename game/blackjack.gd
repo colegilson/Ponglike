@@ -14,6 +14,7 @@ var suites = ["Clubs", "Diamonds", "Hearts", "Spades"]
 @onready var win_screen: Node2D = $game_over
 @export var card: PackedScene
 @export var shop_scene: PackedScene
+signal balance_update(player: String, amount: int)
 
 signal minigame_over
 
@@ -130,13 +131,13 @@ func wait_for_space() -> void:
 
 func determine_winner() -> void:
 	if right_score > left_score:
-		SaveData.money_right += 10
-		SaveData.money_left += 4
+		balance_update.emit("right", 10)
+		balance_update.emit("left", 4)
 	elif right_score < left_score:
-		SaveData.money_left += 10
-		SaveData.money_right += 4
+		balance_update.emit("right", 4)
+		balance_update.emit("left", 10)
 	else:
-		SaveData.money_left += 5
-		SaveData.money_right += 5
+		balance_update.emit("right", 5)
+		balance_update.emit("left", 5)
 		
 	print(SaveData.money_left, " ", SaveData.money_right)

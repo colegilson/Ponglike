@@ -20,10 +20,13 @@ func switch_to(player:String) -> void:
 			transition.show()
 			await wait_for_D()
 			switched.emit(player)
+			transition.hide()
 		"right":
 			bottom_text.set_text("Please press -> to confirm that you are Player 2.")
 			transition.show()
 			await wait_for_D()
+			switched.emit(player)
+			transition.hide()
 	
 func wait_for_D() -> void:
 	while true:

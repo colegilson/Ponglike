@@ -6,8 +6,8 @@ extends Node2D
 @export var game_scene: PackedScene
 @onready var current: Node2D = $Pong
 @onready var ui: CanvasLayer = $UI
-@onready var ringo_L: AnimatableBody2D = $UI/Ringo
-@onready var ringo_R: AnimatableBody2D = $UI/Ringo2
+@onready var ringo_L: Node2D = $UI/Ringo
+@onready var ringo_R: Node2D = $UI/Ringo2
 enum phase { PONG, SHOPL, SHOPR, BLACKJACK, PLINKO } #maybe add plinko phases and check these conditions for bugfixing?
 enum state { L_RECEIVE, L_EMIT, R_RECEIVE, R_EMIT }
 @onready var round = 1
@@ -28,16 +28,16 @@ func _on_game_game_won(player: String) -> void:
 	balance_update(player, 5)
 	current.game_won.disconnect(_on_game_game_won)
 	remove_child.call_deferred(current)
-	#var minigame_options = [blackjack_scene, plinko_scene]
-	#minigame_number = randi_range(0, 1)
-	#if minigame_number == 0: SaveData.current_phase = phase.BLACKJACK
-	#else: SaveData.current_phase = phase.PLINKO
-	#var minigame = minigame_options[0]
+	var minigame_options = [blackjack_scene, plinko_scene]
+	minigame_number = randi_range(0, 1)
+	if minigame_number == 0: SaveData.current_phase = phase.BLACKJACK
+	else: SaveData.current_phase = phase.PLINKO
+	var minigame = minigame_options[0]
 	#var minigame = plinko_scene
-	#current = minigame.instantiate()
-	#add_child.call_deferred(current)
-	#current.minigame_over.connect(_on_minigame_over)
-	#current.balance_update.connect(balance_update)
+	current = minigame.instantiate()
+	add_child.call_deferred(current)
+	current.minigame_over.connect(_on_minigame_over)
+	current.balance_update.connect(balance_update)
 	_on_minigame_over()
 
 
