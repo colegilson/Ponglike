@@ -59,7 +59,6 @@ shape = SubResource("RectangleShape2D_j1w1j")
 [node name="Boing" type="Node2D" parent="Board" unique_id=930413711]
 
 [node name="Disc" type="RigidBody2D" parent="." unique_id=266553497]
-physics_interpolation_mode = 1
 mass = 2.172
 physics_material_override = ExtResource("3_2okng")
 script = ExtResource("3_prv06")

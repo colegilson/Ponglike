@@ -30,8 +30,8 @@ func _physics_process(delta: float) -> void:
 		settle_timer.stop()
 	if Input.is_action_just_pressed("space") and not dropped:
 		dropped = true
-		gravity_scale = 2.0
-		linear_velocity = Vector2(0,500)
+		set_linear_velocity(Vector2(0,0))
+		move_and_collide(get_linear_velocity())
 		physics_material_override.set_bounce(0.8)
 	if not dropped:
 		set_linear_velocity(direction)
