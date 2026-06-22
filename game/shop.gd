@@ -115,16 +115,18 @@ func _on_player_got_ball(ball:BallData):
 func _on_player_got_stick(stick:StickData):
 	match which:
 		"left":
-			SaveData.stick_inventory_left.append(stick)
-			if ball in SaveData.shop_queue_left_stick:
-				SaveData.shop_queue_left_stick.erase(stick)
-			for instance in sticks.get_children():
-				if instance.stick_data == stick:
-					instance.queue_free()
+			if SaveData.money_left >= stick.price:
+				SaveData.stick_inventory_left.append(stick)
+				if ball in SaveData.shop_queue_left_stick:
+					SaveData.shop_queue_left_stick.erase(stick)
+				for instance in sticks.get_children():
+					if instance.stick_data == stick:
+						instance.queue_free()
 		"right":
-			SaveData.stick_inventory_right.append(stick)
-			if ball in SaveData.shop_queue_right_stick:
-				SaveData.shop_queue_right_stick.erase(stick)
-			for instance in sticks.get_children():
-				if instance.stick_data == stick:
-					instance.queue_free()
+			if SaveData.money_right >= stick.price:
+				SaveData.stick_inventory_right.append(stick)
+				if ball in SaveData.shop_queue_right_stick:
+					SaveData.shop_queue_right_stick.erase(stick)
+				for instance in sticks.get_children():
+					if instance.stick_data == stick:
+						instance.queue_free()
