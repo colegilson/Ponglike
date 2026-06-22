@@ -12,17 +12,43 @@
 [ext_resource type="Resource" uid="uid://dirqlgknvrkj0" path="res://components/paddle/baseball_bat.tres" id="7_jmxk6"]
 [ext_resource type="Resource" uid="uid://dgw7ondoe4uot" path="res://game/the_river.tres" id="9_wjx1w"]
 [ext_resource type="Resource" uid="uid://bajtf8koim8ec" path="res://game/magic_wand.tres" id="11_ofsnm"]
+[ext_resource type="FontFile" uid="uid://dg53ws10sabxb" path="res://assets/ui/ScrollPixel.ttf" id="13_jmxk6"]
+[ext_resource type="Script" uid="uid://lgss8wk3b35l" path="res://game/current_player_text.gd" id="14_orr83"]
 
 [node name="Shop" type="Node2D" unique_id=1331112119]
+z_index = 1
 script = ExtResource("1_ew5oi")
 possible_balls = Array[ExtResource("2_13mum")]([ExtResource("3_tqf2i"), ExtResource("4_wjx1w"), ExtResource("5_13mum"), ExtResource("6_tcepo")])
 possible_sticks = Array[ExtResource("5_tcepo")]([ExtResource("6_ofsnm"), ExtResource("7_jmxk6"), ExtResource("9_wjx1w"), ExtResource("11_ofsnm")])
 
-[node name="ShopBG" type="Sprite2D" parent="." unique_id=264251308]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=16002804]
+layer = -2
+
+[node name="ShopBG" type="Sprite2D" parent="CanvasLayer2" unique_id=264251308]
 texture_filter = 3
 position = Vector2(960.5, 541.50006)
 scale = Vector2(4.0020833, 4.011111)
 texture = ExtResource("1_ungis")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=566447875]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="Player" type="RichTextLabel" parent="CanvasLayer" unique_id=1433990123]
+offset_left = 594.0
+offset_top = 935.99994
+offset_right = 1382.0
+offset_bottom = 1126.0
+rotation = -1.5713907
+theme_override_colors/default_color = Color(0.9137255, 0.70980394, 0.21568628, 1)
+theme_override_colors/font_shadow_color = Color(0.22745098, 0.2, 0.08627451, 0.8862745)
+theme_override_fonts/normal_font = ExtResource("13_jmxk6")
+theme_override_font_sizes/normal_font_size = 150
+text = "PLAYER ONE"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("14_orr83")
 
 [node name="BallSack" type="Node2D" parent="." unique_id=1296734782]
 

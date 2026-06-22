@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cq13p1i6jibix" path="res://assets/cards/Backgrounds/Background_Green_Slot.png" id="3_cx3m1"]
 [ext_resource type="FontFile" uid="uid://dg53ws10sabxb" path="res://assets/ui/ScrollPixel.ttf" id="4_audk7"]
 [ext_resource type="FontFile" uid="uid://yp0pa0lhnly" path="res://assets/ui/RetroSans.ttf" id="5_fue8v"]
+[ext_resource type="LabelSettings" uid="uid://c5hjd1ylw7clm" path="res://assets/ui/TEXTSETTINGS.tres" id="6_audk7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tqf2i"]
 radius = 8.0
@@ -416,6 +417,7 @@ font = ExtResource("5_fue8v")
 font_size = 40
 
 [node name="ShopBall" type="Area2D" unique_id=538363930]
+z_index = 4
 script = ExtResource("1_vbq0t")
 
 [node name="BallSkin" type="Sprite2D" parent="." unique_id=904709222]
@@ -428,6 +430,7 @@ scale = Vector2(10.534148, 10.772074)
 shape = SubResource("CircleShape2D_tqf2i")
 
 [node name="Popup" type="Control" parent="." unique_id=2072739521]
+z_index = 5
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
@@ -441,15 +444,15 @@ offset_left = 157.99998
 offset_top = -156.0
 offset_right = 197.99998
 offset_bottom = -116.0
-scale = Vector2(9.089629, 7.469829)
+scale = Vector2(9.049738, 9.547027)
 texture = ExtResource("3_cx3m1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Popup" unique_id=1944383262]
 layout_mode = 0
-offset_left = 207.0
-offset_top = -94.0
-offset_right = 493.0
-offset_bottom = 88.0
+offset_left = 201.0
+offset_top = -135.0
+offset_right = 487.0
+offset_bottom = 121.0
 
 [node name="Name" type="Label" parent="Popup/VBoxContainer" unique_id=1961888599]
 texture_filter = 3
@@ -467,6 +470,12 @@ text = "Dank clouds will gas out your enemies."
 label_settings = SubResource("LabelSettings_qv745")
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="Price" type="Label" parent="Popup/VBoxContainer" unique_id=520275545]
+layout_mode = 2
+text = "6$"
+label_settings = ExtResource("6_audk7")
+horizontal_alignment = 1
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

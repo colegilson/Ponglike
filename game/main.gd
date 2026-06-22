@@ -40,8 +40,6 @@ func _on_game_game_won(player: String) -> void:
 
 
 func _on_minigame_over() -> void:
-	balance_update("left", SaveData.left_won)
-	balance_update("right", SaveData.left_won)
 	remove_child.call_deferred(current)
 	var shop = shop_scene
 	SaveData.current_phase = phase.SHOPL

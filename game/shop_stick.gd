@@ -5,6 +5,7 @@ var stick_data: StickData
 @onready var desc: Label = $Popup/VBoxContainer/Desc
 @onready var popup: Control = $Popup
 signal player_got(StickData)
+@onready var price: Label = $Popup/VBoxContainer/Price
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +13,7 @@ func _ready() -> void:
 		sprite.set_texture(stick_data.sprite)
 		name_of.set_text(stick_data.name)
 		desc.set_text(stick_data.description)
+		price.set_text(str(stick_data.price)+"$")
 	popup.hide()
 
 

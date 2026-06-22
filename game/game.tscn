@@ -23,7 +23,7 @@ follow_viewport_scale = 223.222
 
 [node name="Ringo" type="AnimatableBody2D" parent="UI" unique_id=176965432]
 texture_filter = 1
-position = Vector2(182, 37)
+position = Vector2(115, 37)
 scale = Vector2(5, 5)
 script = ExtResource("7_l8g03")
 
@@ -36,7 +36,7 @@ polygon = PackedVector2Array(-3.0000057, -7.2000003, 2.7999935, -7.2000003, 6.19
 
 [node name="Ringo2" type="AnimatableBody2D" parent="UI" unique_id=422044461]
 texture_filter = 1
-position = Vector2(1698.0001, 38)
+position = Vector2(1702, 38)
 scale = Vector2(5, 5)
 script = ExtResource("7_l8g03")
 

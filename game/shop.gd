@@ -9,6 +9,8 @@ enum phase { PONG, SHOPL, SHOPR, BLACKJACK, PLINKO }
 @onready var stick_sitch: Node2D = $StickSitch
 @onready var balls: Node2D = $Balls
 @onready var sticks: Node2D = $Sticks
+@onready var player: RichTextLabel = $CanvasLayer/Player
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,16 +32,16 @@ func _ready() -> void:
 		GameUtility.get_UI().find_child("Ringo2").hide()
 		GameUtility.get_UI().find_child("Player1Coins").show()
 		GameUtility.get_UI().find_child("Ringo").show()
-		GameUtility.get_UI().find_child("Player").set_text("PLAYER ONE")
-		GameUtility.get_UI().find_child("Player").show()
+		player.set_text("PLAYER ONE")
+		player.show()
 	if which == "right":
 		SaveData.current_phase = phase.SHOPR
 		GameUtility.get_UI().find_child("Player1Coins").hide()
 		GameUtility.get_UI().find_child("Ringo").hide()
 		GameUtility.get_UI().find_child("Player2Coins").show()
 		GameUtility.get_UI().find_child("Ringo2").show()
-		GameUtility.get_UI().find_child("Player").set_text("PLAYER TWO")
-		GameUtility.get_UI().find_child("Player").show()
+		player.set_text("PLAYER TWO")
+		player.show()
 	populate_sticks()
 	populate_balls()
 
