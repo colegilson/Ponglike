@@ -6,7 +6,7 @@ extends RigidBody2D
 @onready var settle_timer: Timer = $Timer
 @onready var reward: int = 0
 @onready var player: String = "left"
-
+@onready var minigame_over: bool = false
 signal game_over(reward: int, player: String)
 
 # Called when the node enters the scene tree for the first time.
@@ -46,7 +46,9 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	set_linear_velocity(Vector2.ZERO)
 	print(reward)
-	game_over.emit(reward, player)
+	if not minigame_over:
+		minigame_over = true
+		game_over.emit(reward, player)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	reward = 3
