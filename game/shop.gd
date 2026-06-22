@@ -10,7 +10,7 @@ enum phase { PONG, SHOPL, SHOPR, BLACKJACK, PLINKO }
 @onready var balls: Node2D = $Balls
 @onready var sticks: Node2D = $Sticks
 @onready var player: RichTextLabel = $CanvasLayer/Player
-
+signal shop_done(which)
 
 
 # Called when the node enters the scene tree for the first time.

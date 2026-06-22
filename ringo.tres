@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_g11y7")
 name = "Ringo"
-description = "Multiplies all cash inflows by 2."
+description = "Multiplying money and such things dollar dollar bill come get errr"
 basic_scene = ExtResource("1_nrron")
 sprite = ExtResource("2_nrron")
 price = 6
