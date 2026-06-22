@@ -6,8 +6,8 @@ extends Node2D
 @export var game_scene: PackedScene
 @onready var current: Node2D = $Pong
 @onready var ui: CanvasLayer = $UI
-@onready var ringo_L: AnimatableBody2D = $Ringo
-@onready var ringo_R: AnimatableBody2D = $Ringo2
+@onready var ringo_L: AnimatableBody2D = $UI/Ringo
+@onready var ringo_R: AnimatableBody2D = $UI/Ringo2
 enum phase { PONG, SHOPL, SHOPR, BLACKJACK, PLINKO } #maybe add plinko phases and check these conditions for bugfixing?
 enum state { L_RECEIVE, L_EMIT, R_RECEIVE, R_EMIT }
 
@@ -49,7 +49,7 @@ func _on_minigame_over() -> void:
 	add_child.call_deferred(current)
 
 func balance_update(player: String, amount: int) -> void:
-	print("updating {player} balance to {amount}")
+	print("updating " + player + "balance to " + str(amount))
 	match player:
 		"left":
 			SaveData.money_left+=5

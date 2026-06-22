@@ -9,21 +9,29 @@
 [ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="5_tcepo"]
 [ext_resource type="Resource" uid="uid://drwdo2jdygw28" path="res://components/paddle/snoopy.tres" id="6_ofsnm"]
 [ext_resource type="Resource" uid="uid://dirqlgknvrkj0" path="res://components/paddle/baseball_bat.tres" id="7_jmxk6"]
-[ext_resource type="PackedScene" uid="uid://ct6nm7leyyj71" path="res://game/shop_ball.tscn" id="10_tqf2i"]
+[ext_resource type="Resource" uid="uid://dgw7ondoe4uot" path="res://game/the_river.tres" id="9_wjx1w"]
+[ext_resource type="Texture2D" uid="uid://cbcxxdtwwnl0t" path="res://assets/sticks/magic_wand.png" id="11_ofsnm"]
 [ext_resource type="PackedScene" uid="uid://cjlji0811f2pv" path="res://game/shop_stick.tscn" id="11_wjx1w"]
+
+[sub_resource type="Resource" id="Resource_xvgnd"]
+script = ExtResource("5_tcepo")
+name = "Magic Wand"
+description = "uwqfygkyawqegfuyagseufyauwyef"
+basic_scene = ExtResource("11_wjx1w")
+sprite = ExtResource("11_ofsnm")
+price = 1
+metadata/_custom_type_script = "uid://bequy0mvsuqv"
 
 [node name="Shop" type="Node2D" unique_id=1331112119]
 script = ExtResource("1_ew5oi")
 possible_balls = Array[ExtResource("2_13mum")]([ExtResource("3_tqf2i"), ExtResource("4_wjx1w"), ExtResource("5_13mum")])
-possible_sticks = Array[ExtResource("5_tcepo")]([ExtResource("6_ofsnm"), ExtResource("7_jmxk6")])
+possible_sticks = Array[ExtResource("5_tcepo")]([ExtResource("6_ofsnm"), ExtResource("7_jmxk6"), ExtResource("9_wjx1w"), SubResource("Resource_xvgnd")])
 
 [node name="ShopBG" type="Sprite2D" parent="." unique_id=264251308]
 texture_filter = 3
 position = Vector2(960.5, 541.50006)
 scale = Vector2(4.0020833, 4.011111)
 texture = ExtResource("1_ungis")
-
-[node name="ShopBall" parent="." unique_id=538363930 instance=ExtResource("10_tqf2i")]
 
 [node name="BallSack" type="Node2D" parent="." unique_id=1296734782]
 
@@ -52,7 +60,3 @@ position = Vector2(1272, 888)
 
 [node name="Stick4" type="Marker2D" parent="SitckSitch" unique_id=1164998191]
 position = Vector2(1272, 696)
-
-[node name="ShopStick" parent="." unique_id=2071711210 instance=ExtResource("11_wjx1w")]
-texture_filter = 3
-position = Vector2(1272, 312)

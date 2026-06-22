@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="StickData" format=3 uid="uid://drwdo2jdygw28"]
 
+[ext_resource type="PackedScene" uid="uid://cjlji0811f2pv" path="res://game/shop_stick.tscn" id="1_7jpm7"]
 [ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="1_fe2fh"]
 [ext_resource type="Texture2D" uid="uid://1sl2opyq5q1f" path="res://assets/sticks/snoopy.png" id="2_fe2fh"]
 
@@ -8,6 +9,7 @@ script = ExtResource("1_fe2fh")
 name = "Pongo Bongo"
 description = "Dank clouds will gas out your enemies."
 return_speed = 1000.0
+basic_scene = ExtResource("1_7jpm7")
 sprite = ExtResource("2_fe2fh")
 price = 5
 metadata/_custom_type_script = "uid://bequy0mvsuqv"

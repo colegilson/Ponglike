@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StickData" format=3 uid="uid://dgw7ondoe4uot"]
+
+[ext_resource type="PackedScene" uid="uid://cjlji0811f2pv" path="res://game/shop_stick.tscn" id="1_sbdlt"]
+[ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="2_j2plk"]
+[ext_resource type="Texture2D" uid="uid://d0367triplp88" path="res://assets/sticks/poker_hand.png" id="3_0mti6"]
+
+[resource]
+script = ExtResource("2_j2plk")
+name = "The River"
+description = "ohhh spooky cards go brrrrrrrrrrrr"
+basic_scene = ExtResource("1_sbdlt")
+sprite = ExtResource("3_0mti6")
+price = 6
+metadata/_custom_type_script = "uid://bequy0mvsuqv"

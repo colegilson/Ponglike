@@ -3,12 +3,11 @@
 [ext_resource type="Script" uid="uid://cddn400cx66e3" path="res://game/shop_stick.gd" id="1_fd6mu"]
 [ext_resource type="Texture2D" uid="uid://1sl2opyq5q1f" path="res://assets/sticks/snoopy.png" id="1_kaqw5"]
 [ext_resource type="Texture2D" uid="uid://cq13p1i6jibix" path="res://assets/cards/Backgrounds/Background_Green_Slot.png" id="2_fd6mu"]
-[ext_resource type="Resource" uid="uid://drwdo2jdygw28" path="res://components/paddle/snoopy.tres" id="2_laufe"]
 [ext_resource type="FontFile" uid="uid://dg53ws10sabxb" path="res://assets/ui/ScrollPixel.ttf" id="3_laufe"]
 [ext_resource type="FontFile" uid="uid://yp0pa0lhnly" path="res://assets/ui/RetroSans.ttf" id="6_laufe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aocp4"]
-size = Vector2(64, 20)
+size = Vector2(323, 109)
 
 [sub_resource type="Image" id="Image_t5ass"]
 data = {
@@ -418,9 +417,9 @@ font_size = 40
 
 [node name="ShopStick" type="Area2D" unique_id=2071711210]
 script = ExtResource("1_fd6mu")
-stick_data = ExtResource("2_laufe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=465192079]
+position = Vector2(-1.5, 6.5)
 shape = SubResource("RectangleShape2D_aocp4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1400035446]
@@ -469,5 +468,6 @@ label_settings = SubResource("LabelSettings_qymlh")
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
