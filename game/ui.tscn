@@ -66,6 +66,7 @@ text = "69
 script = ExtResource("2_rifgy")
 
 [node name="Player" type="RichTextLabel" parent="." unique_id=1261515804]
+visible = false
 offset_left = 594.0
 offset_top = 935.99994
 offset_right = 1382.0

@@ -7,6 +7,8 @@ enum phase { PONG, SHOPL, SHOPR, BLACKJACK, PLINKO }
 @onready var queue
 @onready var ball_sack: Node2D = $BallSack
 @onready var stick_sitch: Node2D = $SitckSitch
+@onready var balls: Node2D = $Balls
+@onready var sticks: Node2D = $Sticks
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +41,7 @@ func _ready() -> void:
 		GameUtility.get_UI().find_child("Player").set_text("PLAYER TWO")
 		GameUtility.get_UI().find_child("Player").show()
 	populate_sticks()
+	populate_balls()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -53,16 +56,75 @@ func populate_sticks():
 			for data in queue:
 				var stick = data.basic_scene.instantiate()
 				stick.stick_data = data
-				self.add_child(stick)
+				sticks.add_child(stick)
 				stick.global_position = spots[i].global_position
+				stick.player_got.connect(_on_player_got_stick)
 				if i < spots.size():
 					i+=1
 		"right":
 			queue = SaveData.shop_queue_right_stick
 			for data in queue:
 				var stick = data.basic_scene.instantiate()
-				self.add_child(stick)
+				sticks.add_child(stick)
 				stick.global_position = spots[i].global_position
+				stick.player_got.connect(_on_player_got_stick)
 				if i < spots.size():
 					i+=1		
 				
+func populate_balls():
+	var spots = ball_sack.get_children()
+	var i = 0
+	match which:
+		"left":
+			queue = SaveData.shop_queue_left_ball
+			for data in queue:
+				var ball = data.basic_scene.instantiate()
+				ball.ball_data = data
+				balls.add_child(ball)
+				ball.global_position = spots[i].global_position
+				ball.player_got.connect(_on_player_got_ball)
+				if i < spots.size():
+					i+=1
+		"right":
+			queue = SaveData.shop_queue_right_ball
+			for data in queue:
+				var ball = data.basic_scene.instantiate()
+				balls.add_child(ball)
+				ball.global_position = spots[i].global_position
+				ball.player_got.connect(_on_player_got_ball)
+				if i < spots.size():
+					i+=1		
+					
+func _on_player_got_ball(ball:BallData):
+	match which:
+		"left":
+			SaveData.ball_inventory_left.append(ball)
+			if ball in SaveData.shop_queue_left_ball:
+				SaveData.shop_queue_left_ball.erase(ball)
+			for instance in balls.get_children():
+				if instance.ball_data == ball:
+					instance.queue_free()
+		"right":
+			SaveData.ball_inventory_right.append(ball)
+			if ball in SaveData.shop_queue_right_ball:
+				SaveData.shop_queue_right_ball.erase(ball)
+			for instance in balls.get_children():
+				if instance.ball_data == ball:
+					instance.queue_free()
+
+func _on_player_got_stick(stick:StickData):
+	match which:
+		"left":
+			SaveData.stick_inventory_left.append(stick)
+			if ball in SaveData.shop_queue_left_stick:
+				SaveData.shop_queue_left_stick.erase(stick)
+			for instance in sticks.get_children():
+				if instance.stick_data == stick:
+					instance.queue_free()
+		"right":
+			SaveData.stick_inventory_right.append(stick)
+			if ball in SaveData.shop_queue_right_stick:
+				SaveData.shop_queue_right_stick.erase(stick)
+			for instance in sticks.get_children():
+				if instance.stick_data == stick:
+					instance.queue_free()

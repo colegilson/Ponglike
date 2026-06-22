@@ -1,6 +1,6 @@
 extends Area2D
-@export var ball_data: BallData
-@onready var sprite: Sprite2D = $Sprite2D
+var ball_data: BallData
+@onready var sprite: Sprite2D = $BallSkin
 @onready var name_of: Label = $Popup/VBoxContainer/Name
 @onready var desc: Label = $Popup/VBoxContainer/Desc
 @onready var popup: Control = $Popup
@@ -8,7 +8,7 @@ signal player_got(BallData)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if BallData:
+	if ball_data:
 		sprite.set_texture(ball_data.sprite)
 		name_of.set_text(ball_data.name)
 		desc.set_text(ball_data.description)

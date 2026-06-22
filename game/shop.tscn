@@ -8,24 +8,15 @@
 [ext_resource type="Resource" uid="uid://ddnrujrst7nfe" path="res://ringo.tres" id="5_13mum"]
 [ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="5_tcepo"]
 [ext_resource type="Resource" uid="uid://drwdo2jdygw28" path="res://components/paddle/snoopy.tres" id="6_ofsnm"]
+[ext_resource type="Resource" uid="uid://bwj5tlvn5nlx1" path="res://game/slingo_casino.tres" id="6_tcepo"]
 [ext_resource type="Resource" uid="uid://dirqlgknvrkj0" path="res://components/paddle/baseball_bat.tres" id="7_jmxk6"]
 [ext_resource type="Resource" uid="uid://dgw7ondoe4uot" path="res://game/the_river.tres" id="9_wjx1w"]
-[ext_resource type="Texture2D" uid="uid://cbcxxdtwwnl0t" path="res://assets/sticks/magic_wand.png" id="11_ofsnm"]
-[ext_resource type="PackedScene" uid="uid://cjlji0811f2pv" path="res://game/shop_stick.tscn" id="11_wjx1w"]
-
-[sub_resource type="Resource" id="Resource_xvgnd"]
-script = ExtResource("5_tcepo")
-name = "Magic Wand"
-description = "uwqfygkyawqegfuyagseufyauwyef"
-basic_scene = ExtResource("11_wjx1w")
-sprite = ExtResource("11_ofsnm")
-price = 1
-metadata/_custom_type_script = "uid://bequy0mvsuqv"
+[ext_resource type="Resource" uid="uid://bajtf8koim8ec" path="res://game/magic_wand.tres" id="11_ofsnm"]
 
 [node name="Shop" type="Node2D" unique_id=1331112119]
 script = ExtResource("1_ew5oi")
-possible_balls = Array[ExtResource("2_13mum")]([ExtResource("3_tqf2i"), ExtResource("4_wjx1w"), ExtResource("5_13mum")])
-possible_sticks = Array[ExtResource("5_tcepo")]([ExtResource("6_ofsnm"), ExtResource("7_jmxk6"), ExtResource("9_wjx1w"), SubResource("Resource_xvgnd")])
+possible_balls = Array[ExtResource("2_13mum")]([ExtResource("3_tqf2i"), ExtResource("4_wjx1w"), ExtResource("5_13mum"), ExtResource("6_tcepo")])
+possible_sticks = Array[ExtResource("5_tcepo")]([ExtResource("6_ofsnm"), ExtResource("7_jmxk6"), ExtResource("9_wjx1w"), ExtResource("11_ofsnm")])
 
 [node name="ShopBG" type="Sprite2D" parent="." unique_id=264251308]
 texture_filter = 3
@@ -60,3 +51,7 @@ position = Vector2(1272, 888)
 
 [node name="Stick4" type="Marker2D" parent="SitckSitch" unique_id=1164998191]
 position = Vector2(1272, 696)
+
+[node name="Balls" type="Node2D" parent="." unique_id=846336709]
+
+[node name="Sticks" type="Node2D" parent="." unique_id=1092793339]
