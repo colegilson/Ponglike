@@ -6,7 +6,7 @@ extends Node2D
 enum phase { PONG, SHOPL, SHOPR, BLACKJACK, PLINKO }
 @onready var queue
 @onready var ball_sack: Node2D = $BallSack
-@onready var stick_sitch: Node2D = $SitckSitch
+@onready var stick_sitch: Node2D = $StickSitch
 @onready var balls: Node2D = $Balls
 @onready var sticks: Node2D = $Sticks
 
@@ -98,24 +98,29 @@ func populate_balls():
 func _on_player_got_ball(ball:BallData):
 	match which:
 		"left":
-			SaveData.ball_inventory_left.append(ball)
-			if ball in SaveData.shop_queue_left_ball:
-				SaveData.shop_queue_left_ball.erase(ball)
-			for instance in balls.get_children():
-				if instance.ball_data == ball:
-					instance.queue_free()
+			if SaveData.money_left >= ball.price:
+				GameUtility.get_game().balance_update("left", -ball.price)
+				SaveData.ball_inventory_left.append(ball)
+				if ball in SaveData.shop_queue_left_ball:
+					SaveData.shop_queue_left_ball.erase(ball)
+				for instance in balls.get_children():
+					if instance.ball_data == ball:
+						instance.queue_free()
 		"right":
-			SaveData.ball_inventory_right.append(ball)
-			if ball in SaveData.shop_queue_right_ball:
-				SaveData.shop_queue_right_ball.erase(ball)
-			for instance in balls.get_children():
-				if instance.ball_data == ball:
-					instance.queue_free()
+			if SaveData.money_right >= ball.price:
+				GameUtility.get_game().balance_update("right", -ball.price)
+				SaveData.ball_inventory_right.append(ball)
+				if ball in SaveData.shop_queue_right_ball:
+					SaveData.shop_queue_right_ball.erase(ball)
+				for instance in balls.get_children():
+					if instance.ball_data == ball:
+						instance.queue_free()
 
 func _on_player_got_stick(stick:StickData):
 	match which:
 		"left":
 			if SaveData.money_left >= stick.price:
+				GameUtility.get_game().balance_update("left", -stick.price)
 				SaveData.stick_inventory_left.append(stick)
 				if ball in SaveData.shop_queue_left_stick:
 					SaveData.shop_queue_left_stick.erase(stick)
@@ -124,6 +129,7 @@ func _on_player_got_stick(stick:StickData):
 						instance.queue_free()
 		"right":
 			if SaveData.money_right >= stick.price:
+				GameUtility.get_game().balance_update("right", -stick.price)
 				SaveData.stick_inventory_right.append(stick)
 				if ball in SaveData.shop_queue_right_stick:
 					SaveData.shop_queue_right_stick.erase(stick)

@@ -52,9 +52,9 @@ func balance_update(player: String, amount: int) -> void:
 	print("updating " + player + "balance to " + str(amount))
 	match player:
 		"left":
-			SaveData.money_left+=5
+			SaveData.money_left+=amount
 			ringo_L.forward_flip()
 
 		"right":
-			SaveData.money_right+=5
+			SaveData.money_right+=amount
 			ringo_R.forward_flip()
