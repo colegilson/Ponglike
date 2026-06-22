@@ -9,26 +9,20 @@ extends RigidBody2D
 @onready var minigame_over: bool = false
 @onready var hit_sfx: AudioStreamPlayer2D = $HitSFX
 signal game_over(reward: int, player: String)
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+#@export var gravity_multiplier := 2.0
 
-var local_gravity_vector = -transform.y * gravity
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	self.set_gravity_scale(0.0)
-	self.set_linear_velocity.call_deferred(direction)
+func _ready():
+	contact_monitor = true
+	gravity_scale = 1.0
+	linear_velocity = right
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if dropped:
-		var velo = get_linear_velocity()
-		var x = velo.x
-		var y = velo.y
-		set_linear_velocity(Vector2(x,350))
+func _physics_process(delta: float) -> void:
 	
+	print(hit_sfx.is_playing())
 	if linear_velocity.y < 400 and linear_velocity.y > -400 and position.y > 1850:
-		self.physics_material_override.friction = 1.0
+		#physics_material_override.friction = 1.0
 		set_linear_velocity(Vector2.ZERO)
 		if settle_timer.is_stopped():
 			settle_timer.start(1)
@@ -36,29 +30,30 @@ func _process(delta: float) -> void:
 		settle_timer.stop()
 	if Input.is_action_just_pressed("space") and not dropped:
 		dropped = true
-		self.physics_material_override.friction = 0.4
-		set_linear_velocity(Vector2(0,350))
-		var gravity = get_gravity()
-		self.set_gravity_scale(1.0)
-		self.set_constant_force(gravity)
-		self.physics_material_override.set_bounce(1.6)
+		gravity_scale = 2.0
+		linear_velocity = Vector2(0,500)
+		physics_material_override.set_bounce(0.8)
 	if not dropped:
-		linear_velocity.y = 0
-		if position.x > 800 or position.x < -800:
-			if direction == right:
-				direction = left
-				self.set_linear_velocity(direction)
-			else:
-				direction = right
-				self.set_linear_velocity(direction)
-			OS.delay_msec(70)
-	print(self.get_linear_velocity())
-	var collision := move_and_collide(get_linear_velocity() * delta)
-	print(self.get_linear_velocity())
-	if not collision:
-		return
-	if not hit_sfx.is_playing():
-		hit_sfx.play()
+		set_linear_velocity(direction)
+
+		if position.x > 800:
+			direction = left
+			position.x = 800
+			set_linear_velocity(direction)
+
+		elif position.x < -800:
+			direction = right
+			position.x = -800
+			set_linear_velocity(direction)
+	print("gravity scale: ", gravity_scale)
+	print("gravity: ", get_gravity())
+	print("velocity: ", linear_velocity)
+	print(ProjectSettings.get_setting("physics/2d/default_gravity"))
+	#var collision := move_and_collide(get_linear_velocity())
+	#if not collision:
+		#return
+	#if not hit_sfx.is_playing():
+		#hit_sfx.play()
 
 func _on_timer_timeout() -> void:
 	set_linear_velocity(Vector2.ZERO)

@@ -18,7 +18,7 @@ func _ready() -> void:
 	for spot in spots:
 		if i%3:
 			i += 1
-		else: i = 1	
+		else: i = 1
 		var scene = bouncers[i]
 		var bouncer = scene.instantiate()
 		boings.add_child(bouncer)
@@ -28,6 +28,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#set_gravity_scale(0.0)
+	print(position)
 	pass
 
 

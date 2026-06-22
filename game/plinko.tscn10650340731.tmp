@@ -60,7 +60,7 @@ shape = SubResource("RectangleShape2D_j1w1j")
 
 [node name="Disc" type="RigidBody2D" parent="." unique_id=266553497]
 physics_interpolation_mode = 1
-mass = 2.172
+mass = 0.003
 physics_material_override = ExtResource("3_2okng")
 script = ExtResource("3_prv06")
 
@@ -88,7 +88,6 @@ polygon = PackedVector2Array(86, 865, 86, 1003, 1844, 1007, 1844, 863, 1832, 863
 
 [node name="Area2D" type="Area2D" parent="Finish" unique_id=106741787]
 position = Vector2(168, 932)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D" unique_id=1273628888]
 position = Vector2(3, 3)
@@ -106,7 +105,6 @@ vertical_alignment = 1
 
 [node name="Area2D2" type="Area2D" parent="Finish" unique_id=1311884146]
 position = Vector2(318, 934)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D2" unique_id=1227910815]
 position = Vector2(6, 4.5)
@@ -124,7 +122,6 @@ vertical_alignment = 1
 
 [node name="Area2D3" type="Area2D" parent="Finish" unique_id=99836661]
 position = Vector2(462, 931)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D3" unique_id=230117622]
 position = Vector2(6, 4.5)
@@ -142,7 +139,6 @@ vertical_alignment = 1
 
 [node name="Area2D4" type="Area2D" parent="Finish" unique_id=1065531041]
 position = Vector2(615, 932)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D4" unique_id=2136054213]
 position = Vector2(-3, 3)
@@ -160,7 +156,6 @@ vertical_alignment = 1
 
 [node name="Area2D5" type="Area2D" parent="Finish" unique_id=1637180045]
 position = Vector2(754, 932)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D5" unique_id=1788519230]
 position = Vector2(1, 4)
@@ -178,7 +173,6 @@ vertical_alignment = 1
 
 [node name="Area2D6" type="Area2D" parent="Finish" unique_id=1055285284]
 position = Vector2(898, 932)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D6" unique_id=2066204014]
 position = Vector2(2, 5)
@@ -196,7 +190,6 @@ vertical_alignment = 1
 
 [node name="Area2D7" type="Area2D" parent="Finish" unique_id=2081205296]
 position = Vector2(1047, 933)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D7" unique_id=1837171649]
 position = Vector2(-2, 5)
@@ -214,7 +207,6 @@ vertical_alignment = 1
 
 [node name="Area2D8" type="Area2D" parent="Finish" unique_id=2009809642]
 position = Vector2(1184, 935)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D8" unique_id=173920679]
 position = Vector2(6, 4.5)
@@ -232,7 +224,6 @@ vertical_alignment = 1
 
 [node name="Area2D9" type="Area2D" parent="Finish" unique_id=294311848]
 position = Vector2(1329, 934)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D9" unique_id=516570761]
 position = Vector2(6, 4.5)
@@ -250,7 +241,6 @@ vertical_alignment = 1
 
 [node name="Area2D10" type="Area2D" parent="Finish" unique_id=1983053710]
 position = Vector2(1475, 932)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D10" unique_id=203236840]
 position = Vector2(6, 4.5)
@@ -268,7 +258,6 @@ vertical_alignment = 1
 
 [node name="Area2D11" type="Area2D" parent="Finish" unique_id=848277725]
 position = Vector2(1626, 932)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D11" unique_id=408101337]
 position = Vector2(-1, 7)
@@ -286,7 +275,6 @@ vertical_alignment = 1
 
 [node name="Area2D12" type="Area2D" parent="Finish" unique_id=186826930]
 position = Vector2(1764, 933)
-gravity_space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish/Area2D12" unique_id=141810369]
 position = Vector2(6, 4.5)
@@ -577,7 +565,6 @@ position = Vector2(962, 354)
 position = Vector2(1730, 354)
 
 [connection signal="body_entered" from="Disc" to="Points" method="_on_disc_body_entered"]
-[connection signal="game_over" from="Disc" to="." method="_on_game_over"]
 [connection signal="timeout" from="Disc/Timer" to="Disc" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Finish/Area2D" to="Disc" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Finish/Area2D2" to="Disc" method="_on_area_2d_2_body_entered"]
