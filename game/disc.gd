@@ -13,7 +13,7 @@ signal game_over(reward: int, player: String)
 
 func _ready():
 	contact_monitor = true
-	gravity_scale = 1.0
+	gravity_scale = 0
 	linear_velocity = right
 	
 
@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 		settle_timer.stop()
 	if Input.is_action_just_pressed("space") and not dropped:
 		dropped = true
+		gravity_scale = 1.0
 		set_linear_velocity(Vector2(0,0))
 		move_and_collide(get_linear_velocity())
 		physics_material_override.set_bounce(0.8)

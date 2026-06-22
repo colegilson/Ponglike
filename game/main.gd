@@ -6,8 +6,8 @@ extends Node2D
 @export var game_scene: PackedScene
 @onready var current: Node2D = $Pong
 @onready var ui: CanvasLayer = $UI
-@onready var ringo_L: AnimatableBody2D = $UI/Ringo
-@onready var ringo_R: AnimatableBody2D = $UI/Ringo2
+@onready var ringo_L: Node2D = $UI/Ringo
+@onready var ringo_R: Node2D = $UI/Ringo2
 enum phase { PONG, SHOPL, SHOPR, BLACKJACK, PLINKO } #maybe add plinko phases and check these conditions for bugfixing?
 enum state { L_RECEIVE, L_EMIT, R_RECEIVE, R_EMIT }
 
