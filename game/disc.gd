@@ -7,16 +7,26 @@ extends RigidBody2D
 @onready var reward: int = 0
 @onready var player: String = "left"
 @onready var minigame_over: bool = false
+@onready var hit_sfx: AudioStreamPlayer2D = $HitSFX
 signal game_over(reward: int, player: String)
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+var local_gravity_vector = -transform.y * gravity
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_gravity_scale(0.0)
-	set_linear_velocity.call_deferred(direction)
+	self.set_gravity_scale(0.0)
+	self.set_linear_velocity.call_deferred(direction)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if dropped:
+		var velo = get_linear_velocity()
+		var x = velo.x
+		var y = velo.y
+		set_linear_velocity(Vector2(x,350))
+	
 	if linear_velocity.y < 400 and linear_velocity.y > -400 and position.y > 1850:
 		self.physics_material_override.friction = 1.0
 		set_linear_velocity(Vector2.ZERO)
@@ -27,25 +37,31 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("space") and not dropped:
 		dropped = true
 		self.physics_material_override.friction = 0.4
-		set_linear_velocity(Vector2(0,0))
+		set_linear_velocity(Vector2(0,350))
 		var gravity = get_gravity()
-		set_gravity_scale(1.0)
-		set_constant_force(gravity)
-		physics_material_override.set_bounce(1.6)
+		self.set_gravity_scale(1.0)
+		self.set_constant_force(gravity)
+		self.physics_material_override.set_bounce(1.6)
 	if not dropped:
 		linear_velocity.y = 0
 		if position.x > 800 or position.x < -800:
 			if direction == right:
 				direction = left
-				set_linear_velocity(direction)
+				self.set_linear_velocity(direction)
 			else:
 				direction = right
-				set_linear_velocity(direction)
-			OS.delay_msec(60)
+				self.set_linear_velocity(direction)
+			OS.delay_msec(70)
+	print(self.get_linear_velocity())
+	var collision := move_and_collide(get_linear_velocity() * delta)
+	print(self.get_linear_velocity())
+	if not collision:
+		return
+	if not hit_sfx.is_playing():
+		hit_sfx.play()
 
 func _on_timer_timeout() -> void:
 	set_linear_velocity(Vector2.ZERO)
-	print(reward)
 	if not minigame_over:
 		minigame_over = true
 		game_over.emit(reward, player)

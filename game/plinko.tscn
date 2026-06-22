@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://rk3pd6lignyn" path="res://game/bouncer_spade.tscn" id="7_7673t"]
 [ext_resource type="PackedScene" uid="uid://dm2kb05uho7g6" path="res://game/bouncer_club.tscn" id="8_56nrw"]
 [ext_resource type="Texture2D" uid="uid://cq13p1i6jibix" path="res://assets/cards/Backgrounds/Background_Green_Slot.png" id="9_7673t"]
+[ext_resource type="AudioStream" uid="uid://b0d743pen2tah" path="res://common/sfx/bing.wav" id="9_qymlh"]
 [ext_resource type="FontFile" uid="uid://vjjeggr5lrvg" path="res://assets/ui/ImpactfulBits.ttf" id="10_56nrw"]
 [ext_resource type="LabelSettings" uid="uid://c5hjd1ylw7clm" path="res://assets/ui/TEXTSETTINGS.tres" id="11_56nrw"]
 
@@ -28,6 +29,8 @@ radius = 24.186773
 size = Vector2(134, 129)
 
 [node name="Plinko" type="Node2D" unique_id=787509409]
+physics_interpolation_mode = 2
+auto_translate_mode = 2
 script = ExtResource("1_gkm67")
 bouncers = Array[PackedScene]([ExtResource("7_7673t"), ExtResource("8_56nrw"), ExtResource("5_co0hn"), ExtResource("5_jfck1")])
 
@@ -61,6 +64,7 @@ shape = SubResource("RectangleShape2D_j1w1j")
 mass = 4.642
 physics_material_override = ExtResource("3_2okng")
 center_of_mass_mode = 1
+constant_force = Vector2(0, 500)
 script = ExtResource("3_prv06")
 
 [node name="Sprite2D" type="Sprite2D" parent="Disc" unique_id=1207528926]
@@ -75,6 +79,10 @@ shape = SubResource("CircleShape2D_j1w1j")
 
 [node name="Timer" type="Timer" parent="Disc" unique_id=571845626]
 one_shot = true
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="Disc" unique_id=1467475558]
+stream = ExtResource("9_qymlh")
+pitch_scale = 4.0
 
 [node name="Finish" type="StaticBody2D" parent="." unique_id=677548598]
 
@@ -396,9 +404,6 @@ position = Vector2(960, 736)
 
 [node name="CollisionShape2D56" type="Marker2D" parent="Points" unique_id=1932565267]
 position = Vector2(1728, 736)
-
-[node name="CollisionShape2D16" type="Marker2D" parent="Points" unique_id=330089981]
-position = Vector2(1152, 256)
 
 [node name="CollisionShape2D17" type="Marker2D" parent="Points" unique_id=946922930]
 position = Vector2(1026, 450)
