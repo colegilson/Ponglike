@@ -1,0 +1,21 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://2q2awhrw4jh3"]
+
+[resource]
+particle_flag_disable_z = true
+direction = Vector3(1, -1, 0)
+initial_velocity_max = 200.0
+angular_velocity_min = -30.310015
+angular_velocity_max = 22.729984
+orbit_velocity_min = -0.4419999
+orbit_velocity_max = 1.4000002
+gravity = Vector3(0, 98, 0)
+radial_accel_min = -7.3700023
+radial_accel_max = 58.539997
+tangential_accel_min = -35.0
+tangential_accel_max = 26.429996
+anim_speed_max = 1.61
+turbulence_enabled = true
+turbulence_noise_strength = 9.48
+turbulence_noise_speed_random = 2.72
+turbulence_initial_displacement_min = -100.0
+turbulence_initial_displacement_max = 100.0

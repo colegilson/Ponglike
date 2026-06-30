@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StickData" format=3 uid="uid://dirqlgknvrkj0"]
+
+[ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="1_16h2x"]
+[ext_resource type="PackedScene" uid="uid://cjlji0811f2pv" path="res://game/shop_stick.tscn" id="1_ndolt"]
+[ext_resource type="Texture2D" uid="uid://ssvxk2wy4ks1" path="res://assets/sticks/baseball_bat.png" id="2_16h2x"]
+
+[resource]
+script = ExtResource("1_16h2x")
+name = "Baseball Bat"
+description = "Does nothing without a ball."
+basic_scene = ExtResource("1_ndolt")
+sprite = ExtResource("2_16h2x")
+price = 5
+metadata/_custom_type_script = "uid://bequy0mvsuqv"

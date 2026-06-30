@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="StickData" format=3 uid="uid://drwdo2jdygw28"]
+
+[ext_resource type="PackedScene" uid="uid://cjlji0811f2pv" path="res://game/shop_stick.tscn" id="1_7jpm7"]
+[ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="1_fe2fh"]
+[ext_resource type="Texture2D" uid="uid://1sl2opyq5q1f" path="res://assets/sticks/snoopy.png" id="2_fe2fh"]
+[ext_resource type="PackedScene" uid="uid://452ee5k8to6x" path="res://assets/sticks/smokegreen.tscn" id="2_jfpsq"]
+[ext_resource type="AudioStream" uid="uid://dtuv56xhqsy3m" path="res://common/sfx/Bong Hit, sound effect - All Sounds (128k).mp3" id="4_8hacj"]
+
+[resource]
+script = ExtResource("1_fe2fh")
+name = "Pongo Bongo"
+description = "Yo... its been like 5 minutes since I last checked the time."
+speed_nerf = 0.5
+basic_scene = ExtResource("1_7jpm7")
+sprite = ExtResource("2_fe2fh")
+particle_trail = ExtResource("2_jfpsq")
+constant_fx = true
+sfx = ExtResource("4_8hacj")
+price = 5
+metadata/_custom_type_script = "uid://bequy0mvsuqv"

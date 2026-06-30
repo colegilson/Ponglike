@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://rhbhl7xnauy4"]
+
+[ext_resource type="Script" uid="uid://bg7w6tjhp4fcc" path="res://components/ball/aim_arrow.gd" id="1_1srch"]
+[ext_resource type="Texture2D" uid="uid://do7wl5gvdn826" path="res://game/Arrow.png" id="2_8c8b5"]
+
+[node name="AimArrow" type="Node2D" unique_id=639252931]
+position = Vector2(23, 0)
+scale = Vector2(2, 2)
+script = ExtResource("1_1srch")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1070347631]
+texture_filter = 1
+rotation = 0.7876484
+texture = ExtResource("2_8c8b5")

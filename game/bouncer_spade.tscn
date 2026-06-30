@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://rk3pd6lignyn"]
+
+[ext_resource type="Texture2D" uid="uid://ctvt5tgcfg0xo" path="res://assets/plinko/bouncer_spade.png" id="1_jylkh"]
+
+[node name="BouncerSpade" type="StaticBody2D" unique_id=1009327994]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1558833620]
+texture_filter = 3
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_jylkh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1150710809]
+polygon = PackedVector2Array(1, 7, 6, 12, 13, 12, 18, 7, 18, 0, 1, -18, -2, -18, -18, 0, -18, 7, -13, 12, -6, 12, -2, 7, -2, 13, -4, 15, -4, 18, 4, 18, 4, 15, 1, 13)

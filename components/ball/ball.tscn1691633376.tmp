@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dpieyslanfybp"]
+
+[ext_resource type="Script" uid="uid://nch5x7ujtj5f" path="res://components/ball/ball.gd" id="1_usys6"]
+[ext_resource type="Resource" uid="uid://boayrgh2y4a2" path="res://components/paddle/basic.tres" id="2_iqdgg"]
+[ext_resource type="AudioStream" uid="uid://c0ffv1l8nwtck" path="res://common/sfx/hit.wav" id="3_w6j5n"]
+[ext_resource type="Texture2D" uid="uid://dtfwiabf0cd75" path="res://assets/balls/8ball.png" id="5_wwidm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f8jx3"]
+radius = 13.0
+
+[node name="Ball" type="CharacterBody2D" unique_id=302909633]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_usys6")
+ball_data = ExtResource("2_iqdgg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1534334981]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("5_wwidm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1856682158]
+shape = SubResource("CircleShape2D_f8jx3")
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="." unique_id=809379938]
+unique_name_in_owner = true
+stream = ExtResource("3_w6j5n")
+
+[node name="FXL" type="Node2D" parent="." unique_id=1131321477]
+scale = Vector2(0.6075508, 0.51615816)
+
+[node name="FXR" type="Node2D" parent="." unique_id=2022460081]

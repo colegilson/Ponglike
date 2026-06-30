@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="StickData" format=3 uid="uid://x5koohgr1kuj"]
+
+[ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="1_hdm3q"]
+[ext_resource type="PackedScene" uid="uid://5qrpcb5p2kt" path="res://components/paddle/smoke.tscn" id="1_sh80f"]
+[ext_resource type="PackedScene" uid="uid://cjlji0811f2pv" path="res://game/shop_stick.tscn" id="1_tgkw6"]
+[ext_resource type="Texture2D" uid="uid://qst1c5ahtpn1" path="res://assets/sticks/cigarette.png" id="2_ym4od"]
+[ext_resource type="PackedScene" uid="uid://dwp83pjpce27d" path="res://components/paddle/ciggy_burning.tscn" id="5_q664c"]
+
+[resource]
+script = ExtResource("1_hdm3q")
+name = "Ciggy"
+description = "A nice long dart. Drunk ones don't count."
+length_mult = 1.75
+superpower_scene = ExtResource("5_q664c")
+basic_scene = ExtResource("1_tgkw6")
+sprite = ExtResource("2_ym4od")
+particle_trail = ExtResource("1_sh80f")
+constant_fx = true
+price = 1
+metadata/_custom_type_script = "uid://bequy0mvsuqv"

@@ -1,0 +1,333 @@
+[gd_scene format=3 uid="uid://cutpg2mkwb254"]
+
+[ext_resource type="Script" uid="uid://bw8wdovh1bpbt" path="res://game/plinko.gd" id="1_gkm67"]
+[ext_resource type="PhysicsMaterial" uid="uid://03bdafpyhnjy" path="res://discmaterial.tres" id="3_2okng"]
+[ext_resource type="Script" uid="uid://bp2osx2nvvsvk" path="res://game/disc.gd" id="3_prv06"]
+[ext_resource type="Texture2D" uid="uid://qdcd47ntd8hh" path="res://assets/plinko/disc.png" id="4_prv06"]
+[ext_resource type="PackedScene" uid="uid://b23ni57420un4" path="res://game/bouncer_heart.tscn" id="5_co0hn"]
+[ext_resource type="PackedScene" uid="uid://b2w8m41rl20nh" path="res://game/bouncer_diamond.tscn" id="5_jfck1"]
+[ext_resource type="PackedScene" uid="uid://rk3pd6lignyn" path="res://game/bouncer_spade.tscn" id="7_7673t"]
+[ext_resource type="PackedScene" uid="uid://dm2kb05uho7g6" path="res://game/bouncer_club.tscn" id="8_56nrw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jfck1"]
+load_path = "res://.godot/imported/plinko.png-85a228d0c5bd72106db8551e0d014ba3.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2okng"]
+size = Vector2(17, 131.57693)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1w1j"]
+size = Vector2(18, 319.1128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j1w1j"]
+radius = 24.186773
+
+[node name="Plinko" type="Node2D" unique_id=787509409]
+script = ExtResource("1_gkm67")
+bouncers = Array[PackedScene]([ExtResource("7_7673t"), ExtResource("8_56nrw"), ExtResource("5_co0hn"), ExtResource("5_jfck1")])
+
+[node name="Backdrop" type="Sprite2D" parent="." unique_id=880238922]
+texture_filter = 3
+position = Vector2(965.37506, 540.50006)
+scale = Vector2(3.008203, 2.9861112)
+texture = SubResource("CompressedTexture2D_jfck1")
+
+[node name="Board" type="Node2D" parent="." unique_id=1741025145]
+
+[node name="LeftBound" type="Area2D" parent="Board" unique_id=223549423]
+position = Vector2(87, 114)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/LeftBound" unique_id=1836359660]
+position = Vector2(0, -6.209999)
+scale = Vector2(1, 0.52)
+shape = SubResource("RectangleShape2D_2okng")
+
+[node name="RightBound" type="Area2D" parent="Board" unique_id=1724451899]
+position = Vector2(1834, 125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/RightBound" unique_id=252758582]
+position = Vector2(0, -20)
+scale = Vector2(1.6061243, -0.111295275)
+shape = SubResource("RectangleShape2D_j1w1j")
+
+[node name="Boing" type="Node2D" parent="Board" unique_id=930413711]
+
+[node name="Disc" type="RigidBody2D" parent="." unique_id=266553497]
+mass = 4.642
+physics_material_override = ExtResource("3_2okng")
+center_of_mass_mode = 1
+script = ExtResource("3_prv06")
+
+[node name="Sprite2D" type="Sprite2D" parent="Disc" unique_id=1207528926]
+texture_filter = 3
+position = Vector2(968, 88)
+scale = Vector2(3.1562567, 3.249999)
+texture = ExtResource("4_prv06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Disc" unique_id=970347455]
+position = Vector2(968, 88)
+shape = SubResource("CircleShape2D_j1w1j")
+
+[node name="Finish" type="StaticBody2D" parent="." unique_id=677548598]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Finish" unique_id=1277105840]
+polygon = PackedVector2Array(86, 865, 86, 1003, 1844, 1007, 1844, 863, 1832, 863, 1832, 1004, 1700, 1004, 1700, 863, 1688, 863, 1688, 1003, 1555, 1003, 1555, 864, 1542, 864, 1543, 1003, 1410, 1003, 1411, 863, 1398, 863, 1398, 1003, 1266, 1003, 1266, 863, 1254, 863, 1254, 1004, 1121, 1004, 1122, 864, 1110, 864, 1110, 1004, 978, 1004, 977, 863, 965, 863, 965, 1003, 833, 1003, 833, 863, 821, 863, 821, 1003, 689, 1003, 689, 863, 677, 863, 677, 1002, 544, 1002, 544, 863, 532, 863, 532, 1002, 400, 1002, 400, 863, 388, 863, 388, 1001, 255, 1001, 256, 863, 243, 863, 243, 1001, 99, 1001, 99, 864)
+
+[node name="Points" type="Node2D" parent="." unique_id=1266545476]
+
+[node name="CollisionShape2D" type="Marker2D" parent="Points" unique_id=360629469]
+position = Vector2(1024, 640)
+
+[node name="CollisionShape2D2" type="Marker2D" parent="Points" unique_id=371485014]
+position = Vector2(1152, 640)
+
+[node name="CollisionShape2D3" type="Marker2D" parent="Points" unique_id=616004734]
+position = Vector2(896, 640)
+
+[node name="CollisionShape2D4" type="Marker2D" parent="Points" unique_id=977010581]
+position = Vector2(768, 640)
+
+[node name="CollisionShape2D5" type="Marker2D" parent="Points" unique_id=1756093734]
+position = Vector2(640, 640)
+
+[node name="CollisionShape2D6" type="Marker2D" parent="Points" unique_id=1626327645]
+position = Vector2(512, 640)
+
+[node name="CollisionShape2D7" type="Marker2D" parent="Points" unique_id=1753716330]
+position = Vector2(384, 640)
+
+[node name="CollisionShape2D8" type="Marker2D" parent="Points" unique_id=980142789]
+position = Vector2(256, 640)
+
+[node name="CollisionShape2D9" type="Marker2D" parent="Points" unique_id=1883385274]
+position = Vector2(128, 640)
+
+[node name="CollisionShape2D10" type="Marker2D" parent="Points" unique_id=1711830349]
+position = Vector2(832, 736)
+
+[node name="CollisionShape2D11" type="Marker2D" parent="Points" unique_id=1238209222]
+position = Vector2(704, 736)
+
+[node name="CollisionShape2D12" type="Marker2D" parent="Points" unique_id=1341436924]
+position = Vector2(576, 736)
+
+[node name="CollisionShape2D13" type="Marker2D" parent="Points" unique_id=1763886032]
+position = Vector2(448, 736)
+
+[node name="CollisionShape2D14" type="Marker2D" parent="Points" unique_id=2015538853]
+position = Vector2(320, 736)
+
+[node name="CollisionShape2D15" type="Marker2D" parent="Points" unique_id=682205096]
+position = Vector2(192, 736)
+
+[node name="CollisionShape2D37" type="Marker2D" parent="Points" unique_id=573698941]
+position = Vector2(1344, 736)
+
+[node name="CollisionShape2D38" type="Marker2D" parent="Points" unique_id=2053346888]
+position = Vector2(1216, 736)
+
+[node name="CollisionShape2D39" type="Marker2D" parent="Points" unique_id=1386798665]
+position = Vector2(1088, 736)
+
+[node name="CollisionShape2D40" type="Marker2D" parent="Points" unique_id=2036541110]
+position = Vector2(1600, 736)
+
+[node name="CollisionShape2D41" type="Marker2D" parent="Points" unique_id=1410800333]
+position = Vector2(1472, 736)
+
+[node name="CollisionShape2D42" type="Marker2D" parent="Points" unique_id=1489585163]
+position = Vector2(1856, 736)
+
+[node name="CollisionShape2D43" type="Marker2D" parent="Points" unique_id=1916982163]
+position = Vector2(1792, 640)
+
+[node name="CollisionShape2D44" type="Marker2D" parent="Points" unique_id=1180513038]
+position = Vector2(1664, 640)
+
+[node name="CollisionShape2D45" type="Marker2D" parent="Points" unique_id=1517824117]
+position = Vector2(1536, 640)
+
+[node name="CollisionShape2D46" type="Marker2D" parent="Points" unique_id=1898546171]
+position = Vector2(1408, 640)
+
+[node name="CollisionShape2D47" type="Marker2D" parent="Points" unique_id=1423902236]
+position = Vector2(1280, 640)
+
+[node name="CollisionShape2D48" type="Marker2D" parent="Points" unique_id=304204430]
+position = Vector2(960, 736)
+
+[node name="CollisionShape2D56" type="Marker2D" parent="Points" unique_id=1932565267]
+position = Vector2(1728, 736)
+
+[node name="CollisionShape2D16" type="Marker2D" parent="Points" unique_id=330089981]
+position = Vector2(1152, 256)
+
+[node name="CollisionShape2D17" type="Marker2D" parent="Points" unique_id=946922930]
+position = Vector2(1026, 450)
+
+[node name="CollisionShape2D18" type="Marker2D" parent="Points" unique_id=1485436784]
+position = Vector2(1154, 450)
+
+[node name="CollisionShape2D19" type="Marker2D" parent="Points" unique_id=1461782238]
+position = Vector2(898, 450)
+
+[node name="CollisionShape2D20" type="Marker2D" parent="Points" unique_id=1146443017]
+position = Vector2(770, 450)
+
+[node name="CollisionShape2D21" type="Marker2D" parent="Points" unique_id=1288531629]
+position = Vector2(642, 450)
+
+[node name="CollisionShape2D22" type="Marker2D" parent="Points" unique_id=109645828]
+position = Vector2(514, 450)
+
+[node name="CollisionShape2D23" type="Marker2D" parent="Points" unique_id=53571321]
+position = Vector2(386, 450)
+
+[node name="CollisionShape2D24" type="Marker2D" parent="Points" unique_id=2042964798]
+position = Vector2(258, 450)
+
+[node name="CollisionShape2D25" type="Marker2D" parent="Points" unique_id=1603276571]
+position = Vector2(130, 450)
+
+[node name="CollisionShape2D26" type="Marker2D" parent="Points" unique_id=1420751072]
+position = Vector2(834, 546)
+
+[node name="CollisionShape2D27" type="Marker2D" parent="Points" unique_id=1604819285]
+position = Vector2(706, 546)
+
+[node name="CollisionShape2D28" type="Marker2D" parent="Points" unique_id=671294288]
+position = Vector2(578, 546)
+
+[node name="CollisionShape2D29" type="Marker2D" parent="Points" unique_id=1221471463]
+position = Vector2(450, 546)
+
+[node name="CollisionShape2D30" type="Marker2D" parent="Points" unique_id=1748616469]
+position = Vector2(322, 546)
+
+[node name="CollisionShape2D31" type="Marker2D" parent="Points" unique_id=2004405387]
+position = Vector2(194, 546)
+
+[node name="CollisionShape2D49" type="Marker2D" parent="Points" unique_id=973436283]
+position = Vector2(1346, 546)
+
+[node name="CollisionShape2D50" type="Marker2D" parent="Points" unique_id=1993773362]
+position = Vector2(1218, 546)
+
+[node name="CollisionShape2D51" type="Marker2D" parent="Points" unique_id=690415372]
+position = Vector2(1090, 546)
+
+[node name="CollisionShape2D52" type="Marker2D" parent="Points" unique_id=156315775]
+position = Vector2(1602, 546)
+
+[node name="CollisionShape2D53" type="Marker2D" parent="Points" unique_id=1805391064]
+position = Vector2(1474, 546)
+
+[node name="CollisionShape2D54" type="Marker2D" parent="Points" unique_id=990705697]
+position = Vector2(1858, 546)
+
+[node name="CollisionShape2D55" type="Marker2D" parent="Points" unique_id=575188744]
+position = Vector2(1794, 450)
+
+[node name="CollisionShape2D57" type="Marker2D" parent="Points" unique_id=960402444]
+position = Vector2(1666, 450)
+
+[node name="CollisionShape2D58" type="Marker2D" parent="Points" unique_id=736231414]
+position = Vector2(1538, 450)
+
+[node name="CollisionShape2D59" type="Marker2D" parent="Points" unique_id=371061762]
+position = Vector2(1410, 450)
+
+[node name="CollisionShape2D60" type="Marker2D" parent="Points" unique_id=550332631]
+position = Vector2(1282, 450)
+
+[node name="CollisionShape2D61" type="Marker2D" parent="Points" unique_id=1515498136]
+position = Vector2(962, 546)
+
+[node name="CollisionShape2D62" type="Marker2D" parent="Points" unique_id=1110362012]
+position = Vector2(1730, 546)
+
+[node name="CollisionShape2D32" type="Marker2D" parent="Points" unique_id=1691902758]
+position = Vector2(1026, 258)
+
+[node name="CollisionShape2D33" type="Marker2D" parent="Points" unique_id=165113606]
+position = Vector2(1154, 258)
+
+[node name="CollisionShape2D34" type="Marker2D" parent="Points" unique_id=855198814]
+position = Vector2(898, 258)
+
+[node name="CollisionShape2D35" type="Marker2D" parent="Points" unique_id=1770945340]
+position = Vector2(770, 258)
+
+[node name="CollisionShape2D36" type="Marker2D" parent="Points" unique_id=1369001169]
+position = Vector2(642, 258)
+
+[node name="CollisionShape2D63" type="Marker2D" parent="Points" unique_id=1735376428]
+position = Vector2(514, 258)
+
+[node name="CollisionShape2D64" type="Marker2D" parent="Points" unique_id=501971438]
+position = Vector2(386, 258)
+
+[node name="CollisionShape2D65" type="Marker2D" parent="Points" unique_id=1436183534]
+position = Vector2(258, 258)
+
+[node name="CollisionShape2D66" type="Marker2D" parent="Points" unique_id=956825069]
+position = Vector2(130, 258)
+
+[node name="CollisionShape2D67" type="Marker2D" parent="Points" unique_id=408089281]
+position = Vector2(834, 354)
+
+[node name="CollisionShape2D68" type="Marker2D" parent="Points" unique_id=630632187]
+position = Vector2(706, 354)
+
+[node name="CollisionShape2D69" type="Marker2D" parent="Points" unique_id=1672992154]
+position = Vector2(578, 354)
+
+[node name="CollisionShape2D70" type="Marker2D" parent="Points" unique_id=774893766]
+position = Vector2(450, 354)
+
+[node name="CollisionShape2D71" type="Marker2D" parent="Points" unique_id=338362486]
+position = Vector2(322, 354)
+
+[node name="CollisionShape2D72" type="Marker2D" parent="Points" unique_id=770068280]
+position = Vector2(194, 354)
+
+[node name="CollisionShape2D73" type="Marker2D" parent="Points" unique_id=514559816]
+position = Vector2(1346, 354)
+
+[node name="CollisionShape2D74" type="Marker2D" parent="Points" unique_id=1612660502]
+position = Vector2(1218, 354)
+
+[node name="CollisionShape2D75" type="Marker2D" parent="Points" unique_id=603928965]
+position = Vector2(1090, 354)
+
+[node name="CollisionShape2D76" type="Marker2D" parent="Points" unique_id=1930848759]
+position = Vector2(1602, 354)
+
+[node name="CollisionShape2D77" type="Marker2D" parent="Points" unique_id=655637888]
+position = Vector2(1474, 354)
+
+[node name="CollisionShape2D78" type="Marker2D" parent="Points" unique_id=1500266376]
+position = Vector2(1858, 354)
+
+[node name="CollisionShape2D79" type="Marker2D" parent="Points" unique_id=1188240892]
+position = Vector2(1794, 258)
+
+[node name="CollisionShape2D80" type="Marker2D" parent="Points" unique_id=1525856317]
+position = Vector2(1666, 258)
+
+[node name="CollisionShape2D81" type="Marker2D" parent="Points" unique_id=1707669288]
+position = Vector2(1538, 258)
+
+[node name="CollisionShape2D82" type="Marker2D" parent="Points" unique_id=1885841326]
+position = Vector2(1410, 258)
+
+[node name="CollisionShape2D83" type="Marker2D" parent="Points" unique_id=2083449536]
+position = Vector2(1282, 258)
+
+[node name="CollisionShape2D84" type="Marker2D" parent="Points" unique_id=514607111]
+position = Vector2(962, 354)
+
+[node name="CollisionShape2D85" type="Marker2D" parent="Points" unique_id=6530153]
+position = Vector2(1730, 354)
+
+[connection signal="body_entered" from="Board/LeftBound" to="Disc" method="_on_left_bound_body_entered"]
+[connection signal="body_entered" from="Board/RightBound" to="Disc" method="_on_right_bound_body_entered"]

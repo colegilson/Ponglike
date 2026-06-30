@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://caq76mrbwo61o"]
+
+[ext_resource type="Texture2D" uid="uid://veo7xti2s3iv" path="res://components/ball/New Piskel (7).png" id="1_hton0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f8jx3"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_f8jx3"]
+_data = [Vector2(0.10810812, 0.16541362), 0.0, 0.0, 0, 0, Vector2(0.2702703, 0.51879704), 2.003008, 2.003008, 0, 0, Vector2(0.4099099, 0.6165414), 0.0, 0.0, 0, 0, Vector2(0.6396396, 0.6992482), 0.0, 0.0, 0, 0, Vector2(0.9099099, 0.3383459), -3.1107314, -3.1107314, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_f8jx3"]
+curve = SubResource("Curve_f8jx3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f8jx3"]
+particle_flag_disable_z = true
+direction = Vector3(1, -1, 0)
+initial_velocity_max = 200.0
+angular_velocity_min = -30.310015
+angular_velocity_max = 22.729984
+orbit_velocity_min = -0.49999994
+orbit_velocity_max = 0.54400015
+gravity = Vector3(0, 98, 0)
+radial_accel_min = -7.3700023
+radial_accel_max = 58.539997
+tangential_accel_min = -35.0
+tangential_accel_max = 26.429996
+scale_min = 0.19999999
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_f8jx3")
+anim_offset_max = 1.0
+turbulence_enabled = true
+turbulence_noise_strength = 9.48
+turbulence_noise_speed_random = 2.72
+turbulence_initial_displacement_min = -100.0
+turbulence_initial_displacement_max = 100.0
+
+[node name="PoolParticles" type="GPUParticles2D" unique_id=598864752]
+z_index = -1
+material = SubResource("CanvasItemMaterial_f8jx3")
+amount = 10
+texture = ExtResource("1_hton0")
+process_material = SubResource("ParticleProcessMaterial_f8jx3")

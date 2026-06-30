@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bk4p8n8kujxie"]
+
+[ext_resource type="PackedScene" uid="uid://cutpg2mkwb254" path="res://game/plinko.tscn" id="1_k4qng"]
+[ext_resource type="PackedScene" uid="uid://bap0g0u8e0gau" path="res://game/blackjack.tscn" id="2_qo22h"]
+[ext_resource type="PackedScene" uid="uid://dyg3lqps5j3aj" path="res://game/shop.tscn" id="3_k4qng"]
+
+[node name="Minigames" type="Node2D" unique_id=483404697]
+
+[node name="Plinko" parent="." unique_id=787509409 instance=ExtResource("1_k4qng")]
+script = null
+
+[node name="Blackjack" parent="." unique_id=1561088797 instance=ExtResource("2_qo22h")]
+shop_scene = ExtResource("3_k4qng")

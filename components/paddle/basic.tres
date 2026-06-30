@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BallData" format=3 uid="uid://boayrgh2y4a2"]
+
+[ext_resource type="Script" uid="uid://dux51mmq1wlk1" path="res://components/ball/ball_data.gd" id="1_6b0wm"]
+[ext_resource type="AudioStream" uid="uid://c0ffv1l8nwtck" path="res://common/sfx/hit.wav" id="2_qgcr8"]
+[ext_resource type="Texture2D" uid="uid://diaar48nr75te" path="res://assets/balls/pong.png" id="3_sj1qe"]
+
+[resource]
+script = ExtResource("1_6b0wm")
+name = "Pong"
+description = "Basic pong ball"
+sprite = ExtResource("3_sj1qe")
+sfx = ExtResource("2_qgcr8")
+metadata/_custom_type_script = "uid://dux51mmq1wlk1"

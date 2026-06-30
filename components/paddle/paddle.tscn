@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dfq6d3x5qit4i"]
+
+[ext_resource type="Script" uid="uid://64eirvsc1toh" path="res://components/paddle/paddle.gd" id="1_waih8"]
+[ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="2_lcsei"]
+[ext_resource type="Texture2D" uid="uid://qio2bb0ygq5o" path="res://assets/backdrops/basicahh.png" id="3_xem4r"]
+
+[sub_resource type="Resource" id="Resource_sbdlt"]
+script = ExtResource("2_lcsei")
+name = "Basic"
+description = "e"
+sprite = ExtResource("3_xem4r")
+metadata/_custom_type_script = "uid://bequy0mvsuqv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hevo"]
+size = Vector2(50, 200)
+
+[node name="Paddle" type="CharacterBody2D" unique_id=1901416476]
+scale = Vector2(1.9999988, 1)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_waih8")
+stick_data = SubResource("Resource_sbdlt")
+metadata/Player = ""
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=520121163]
+texture_filter = 1
+position = Vector2(0.9999999, -4.656613e-10)
+rotation = 1.5707964
+scale = Vector2(6.200522, 3.3193889)
+texture = ExtResource("3_xem4r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1014643547]
+scale = Vector2(0.7799995, 1)
+shape = SubResource("RectangleShape2D_1hevo")
+
+[node name="PaddleFXR" type="Node2D" parent="." unique_id=179792250]
+
+[node name="SFXR" type="AudioStreamPlayer" parent="PaddleFXR" unique_id=744197249]
+
+[node name="PaddleFXL" type="Node2D" parent="." unique_id=1322091044]
+
+[node name="SFXL" type="AudioStreamPlayer" parent="PaddleFXL" unique_id=1042154235]
+
+[node name="CigHolder" type="Control" parent="." unique_id=1271460203]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 29.500017
+offset_top = 285.0
+offset_right = 29.500017
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+scale = Vector2(2.1655655, 0.99424595)
+
+[node name="CigHolder2" type="Control" parent="." unique_id=2063614183]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 28.500015
+offset_top = 290.0
+offset_right = 28.500015
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+scale = Vector2(2.1655655, 0.99424595)

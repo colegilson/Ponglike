@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c4wasd16px7qo"]
+
+[ext_resource type="Texture2D" uid="uid://dutf6p5ftjuep" path="res://assets/balls/New Piskel (5).png" id="1_rn4gp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vlpkj"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 3
+particles_anim_loop = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_na31m"]
+particle_flag_disable_z = true
+direction = Vector3(1, -1, 0)
+initial_velocity_max = 200.0
+angular_velocity_min = -30.310015
+angular_velocity_max = 22.729984
+orbit_velocity_min = -0.4419999
+orbit_velocity_max = 1.4000002
+gravity = Vector3(0, 98, 0)
+radial_accel_min = -7.3700023
+radial_accel_max = 58.539997
+tangential_accel_min = -35.0
+tangential_accel_max = 26.429996
+anim_speed_max = 1.61
+turbulence_enabled = true
+turbulence_noise_strength = 9.48
+turbulence_noise_speed_random = 2.72
+turbulence_initial_displacement_min = -100.0
+turbulence_initial_displacement_max = 100.0
+
+[node name="MoneyParticles" type="GPUParticles2D" unique_id=1350359137]
+z_index = -1
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_vlpkj")
+scale = Vector2(0.9013023, 0.84127486)
+amount = 13
+texture = ExtResource("1_rn4gp")
+speed_scale = 0.5
+explosiveness = 0.33
+randomness = 0.71
+collision_base_size = 0.0
+local_coords = true
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_na31m")

@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://jqcfelxnokgo"]
+
+[ext_resource type="Texture2D" uid="uid://cg8u24v3mjp7x" path="res://assets/backdrops/pongocasino.png" id="1_pxi11"]
+[ext_resource type="FontFile" uid="uid://vjjeggr5lrvg" path="res://assets/ui/ImpactfulBits.ttf" id="2_1x8ls"]
+
+[node name="Pause_start" type="Node2D" unique_id=1054758822]
+
+[node name="game_over" type="Node2D" parent="." unique_id=1330664485]
+position = Vector2(921.00006, 654)
+scale = Vector2(0.9213821, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="game_over" unique_id=2135042504]
+texture_filter = 1
+position = Vector2(55.3515, -113.75)
+scale = Vector2(3.2931018, 3.9144971)
+texture = ExtResource("1_pxi11")
+
+[node name="Controls" type="VBoxContainer" parent="game_over" unique_id=1251951111]
+offset_left = -528.0
+offset_top = -70.0
+offset_right = 577.0
+offset_bottom = 314.0
+
+[node name="ControlsText" type="Label" parent="game_over/Controls" unique_id=2448121]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8862133, 0.7642674, 0, 1)
+theme_override_fonts/font = ExtResource("2_1x8ls")
+theme_override_font_sizes/font_size = 101
+text = "How To Play:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls2" type="VBoxContainer" parent="game_over" unique_id=1229815825]
+offset_left = -532.0
+offset_top = 100.0
+offset_right = -219.0
+offset_bottom = 2790.0
+
+[node name="HowTo" type="Label" parent="game_over/Controls2" unique_id=1587239180]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8862745, 0.7647059, 0, 1)
+theme_override_fonts/font = ExtResource("2_1x8ls")
+theme_override_font_sizes/font_size = 65
+text = "Player 1:	"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HowTo2" type="Label" parent="game_over/Controls2" unique_id=1953471096]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1x8ls")
+theme_override_font_sizes/font_size = 65
+text = "W/S
+Q
+A"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Controls3" type="VBoxContainer" parent="game_over" unique_id=517386015]
+offset_left = -226.0
+offset_top = 97.0
+offset_right = 255.0
+offset_bottom = 2764.0
+
+[node name="HowTo" type="Label" parent="game_over/Controls3" unique_id=385948977]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1x8ls")
+theme_override_font_sizes/font_size = 65
+text = "ACTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HowTo2" type="Label" parent="game_over/Controls3" unique_id=805908276]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1x8ls")
+theme_override_font_sizes/font_size = 65
+text = "UP/DOWN
+SWITCH PADDLE
+SWITCH BALL"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Controls4" type="VBoxContainer" parent="game_over" unique_id=1581185902]
+offset_left = 262.0
+offset_top = 100.0
+offset_right = 575.0
+offset_bottom = 2790.0
+
+[node name="HowTo" type="Label" parent="game_over/Controls4" unique_id=1329812009]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8862745, 0.7647059, 0, 1)
+theme_override_fonts/font = ExtResource("2_1x8ls")
+theme_override_font_sizes/font_size = 65
+text = "Player 2:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HowTo2" type="Label" parent="game_over/Controls4" unique_id=519421896]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1x8ls")
+theme_override_font_sizes/font_size = 65
+text = "UP/DOWN
+SHIFT
+LEFT"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

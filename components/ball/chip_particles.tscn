@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dy65n1yrjfn6b"]
+
+[ext_resource type="Texture2D" uid="uid://boc22c7okcldb" path="res://assets/balls/casino_chips.png" id="1_lif2l"]
+[ext_resource type="Material" uid="uid://0pbyyw5qapky" path="res://components/ball/chipchip.tres" id="2_lgc0y"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rinto"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[node name="ChipParticles" type="GPUParticles2D" unique_id=1271206074]
+z_index = -1
+material = SubResource("CanvasItemMaterial_rinto")
+texture = ExtResource("1_lif2l")
+lifetime = 1.08
+preprocess = 1.78
+explosiveness = 0.09
+randomness = 0.17
+process_material = ExtResource("2_lgc0y")

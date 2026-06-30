@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dmov0n6cflnxj"]
+
+[ext_resource type="Script" uid="uid://wfjldi85v32v" path="res://game/main.gd" id="1_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://7pogsoegqivl" path="res://game/ponggame.tscn" id="2_dakft"]
+[ext_resource type="PackedScene" uid="uid://dyg3lqps5j3aj" path="res://game/shop.tscn" id="2_dxrkv"]
+[ext_resource type="PackedScene" uid="uid://bap0g0u8e0gau" path="res://game/blackjack.tscn" id="3_dxrkv"]
+[ext_resource type="PackedScene" uid="uid://cutpg2mkwb254" path="res://game/plinko.tscn" id="4_dakft"]
+[ext_resource type="PackedScene" uid="uid://c0ol8vaokdfgv" path="res://game/ui.tscn" id="6_y36n6"]
+[ext_resource type="Script" uid="uid://bcxysbbvi7pms" path="res://game/ringo.gd" id="7_l8g03"]
+[ext_resource type="SpriteFrames" uid="uid://dd2e0q5845bjw" path="res://game/ringo.tres" id="8_j8tme"]
+[ext_resource type="AudioStream" uid="uid://dat5uk7itrc38" path="res://common/shop_music.mp3" id="9_l8g03"]
+[ext_resource type="PackedScene" uid="uid://jqcfelxnokgo" path="res://pause_start.tscn" id="10_j8tme"]
+[ext_resource type="Script" uid="uid://c66ejmvslnvet" path="res://pause_start.gd" id="11_3vho3"]
+
+[node name="Game" type="Node2D" unique_id=1282590189]
+process_mode = 1
+script = ExtResource("1_4fuuu")
+shop_scene = ExtResource("2_dxrkv")
+blackjack_scene = ExtResource("3_dxrkv")
+plinko_scene = ExtResource("4_dakft")
+game_scene = ExtResource("2_dakft")
+
+[node name="Pong" parent="." unique_id=1213146880 instance=ExtResource("2_dakft")]
+
+[node name="UI" parent="." unique_id=1448638293 instance=ExtResource("6_y36n6")]
+follow_viewport_scale = 223.222
+
+[node name="Ringo" type="Node2D" parent="UI" unique_id=97714231]
+texture_filter = 1
+position = Vector2(115, 37)
+scale = Vector2(5, 5)
+script = ExtResource("7_l8g03")
+
+[node name="RingoSprite" type="AnimatedSprite2D" parent="UI/Ringo" unique_id=1914271303]
+sprite_frames = ExtResource("8_j8tme")
+
+[node name="Ringo2" type="Node2D" parent="UI" unique_id=114549]
+texture_filter = 1
+position = Vector2(1702, 38)
+scale = Vector2(5, 5)
+script = ExtResource("7_l8g03")
+
+[node name="RingoSprite" type="AnimatedSprite2D" parent="UI/Ringo2" unique_id=73099938]
+sprite_frames = ExtResource("8_j8tme")
+
+[node name="AllButPong" type="AudioStreamPlayer" parent="UI" unique_id=1690808370]
+stream = ExtResource("9_l8g03")
+
+[node name="Pause_start" parent="." unique_id=1054758822 instance=ExtResource("10_j8tme")]
+process_mode = 3
+position = Vector2(-1, -1)
+script = ExtResource("11_3vho3")
+
+[connection signal="game_won" from="Pong" to="." method="_on_game_game_won"]
+[connection signal="switched" from="UI" to="." method="_on_ui_switched"]

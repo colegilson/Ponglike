@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StickData" format=3 uid="uid://bajtf8koim8ec"]
+
+[ext_resource type="PackedScene" uid="uid://cjlji0811f2pv" path="res://game/shop_stick.tscn" id="1_1om7h"]
+[ext_resource type="PackedScene" uid="uid://jppfn5yo1fvg" path="res://components/paddle/sparkles.tscn" id="2_mhfc0"]
+[ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="2_wyehm"]
+[ext_resource type="Texture2D" uid="uid://cbcxxdtwwnl0t" path="res://assets/sticks/magic_wand.png" id="3_mhfc0"]
+
+[resource]
+script = ExtResource("2_wyehm")
+name = "Magic Wand"
+description = "Bippity boppity boo! "
+basic_scene = ExtResource("1_1om7h")
+sprite = ExtResource("3_mhfc0")
+particle_trail = ExtResource("2_mhfc0")
+price = 4
+metadata/_custom_type_script = "uid://bequy0mvsuqv"

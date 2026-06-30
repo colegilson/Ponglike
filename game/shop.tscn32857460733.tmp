@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://dyg3lqps5j3aj"]
+
+[ext_resource type="Script" uid="uid://coxsev5s4bqqv" path="res://game/shop.gd" id="1_ew5oi"]
+[ext_resource type="Texture2D" uid="uid://ddvkhlsb0swpv" path="res://assets/backdrops/shop1.png" id="1_ungis"]
+[ext_resource type="Script" uid="uid://dux51mmq1wlk1" path="res://components/ball/ball_data.gd" id="2_13mum"]
+[ext_resource type="Resource" uid="uid://bi2uiw0us8evn" path="res://components/ball/8ball.tres" id="3_tqf2i"]
+[ext_resource type="Resource" uid="uid://dctpcbf4w4vr5" path="res://game/baseball.tres" id="4_orr83"]
+[ext_resource type="Resource" uid="uid://ddnrujrst7nfe" path="res://ringo.tres" id="5_13mum"]
+[ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="5_tcepo"]
+[ext_resource type="Resource" uid="uid://drwdo2jdygw28" path="res://components/paddle/snoopy.tres" id="6_ofsnm"]
+[ext_resource type="Resource" uid="uid://bwj5tlvn5nlx1" path="res://game/slingo_casino.tres" id="6_tcepo"]
+[ext_resource type="Resource" uid="uid://dirqlgknvrkj0" path="res://components/paddle/baseball_bat.tres" id="7_jmxk6"]
+[ext_resource type="Resource" uid="uid://dgw7ondoe4uot" path="res://game/the_river.tres" id="9_wjx1w"]
+[ext_resource type="Resource" uid="uid://bajtf8koim8ec" path="res://game/magic_wand.tres" id="11_ofsnm"]
+[ext_resource type="FontFile" uid="uid://dg53ws10sabxb" path="res://assets/ui/ScrollPixel.ttf" id="13_jmxk6"]
+[ext_resource type="Script" uid="uid://lgss8wk3b35l" path="res://game/current_player_text.gd" id="14_orr83"]
+[ext_resource type="PackedScene" uid="uid://d0lqsn0j0tnv" path="res://game/done_button.tscn" id="15_orr83"]
+
+[node name="Shop" type="Node2D" unique_id=1331112119]
+z_index = 1
+script = ExtResource("1_ew5oi")
+possible_balls = Array[ExtResource("2_13mum")]([ExtResource("3_tqf2i"), ExtResource("4_orr83"), ExtResource("5_13mum"), ExtResource("6_tcepo")])
+possible_sticks = Array[ExtResource("5_tcepo")]([ExtResource("6_ofsnm"), ExtResource("7_jmxk6"), ExtResource("9_wjx1w"), ExtResource("11_ofsnm")])
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=16002804]
+layer = -2
+
+[node name="ShopBG" type="Sprite2D" parent="CanvasLayer2" unique_id=264251308]
+texture_filter = 3
+position = Vector2(960.5, 541.50006)
+scale = Vector2(4.0020833, 4.011111)
+texture = ExtResource("1_ungis")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=566447875]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="Player" type="RichTextLabel" parent="CanvasLayer" unique_id=1433990123]
+offset_left = 594.0
+offset_top = 935.99994
+offset_right = 1382.0
+offset_bottom = 1126.0
+rotation = -1.5713907
+theme_override_colors/default_color = Color(0.9137255, 0.70980394, 0.21568628, 1)
+theme_override_colors/font_shadow_color = Color(0.22745098, 0.2, 0.08627451, 0.8862745)
+theme_override_fonts/normal_font = ExtResource("13_jmxk6")
+theme_override_font_sizes/normal_font_size = 150
+text = "PLAYER ONE"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("14_orr83")
+
+[node name="DoneButton" parent="CanvasLayer" unique_id=589144056 instance=ExtResource("15_orr83")]
+offset_left = 1664.0
+offset_top = 816.0
+offset_right = 1701.0
+offset_bottom = 864.0
+scale = Vector2(6.2144423, 5.0070877)
+text = ""
+alignment = 0
+icon_alignment = 2
+
+[node name="BallSack" type="Node2D" parent="." unique_id=1296734782]
+
+[node name="Ball1" type="Marker2D" parent="BallSack" unique_id=607789195]
+position = Vector2(335, 303)
+
+[node name="Ball2" type="Marker2D" parent="BallSack" unique_id=2106539074]
+position = Vector2(334, 475)
+
+[node name="Ball3" type="Marker2D" parent="BallSack" unique_id=1424780852]
+position = Vector2(334, 684)
+
+[node name="Ball4" type="Marker2D" parent="BallSack" unique_id=398093842]
+position = Vector2(334, 873)
+
+[node name="StickSitch" type="Node2D" parent="." unique_id=1405264305]
+
+[node name="Stick1" type="Marker2D" parent="StickSitch" unique_id=623620874]
+position = Vector2(1274, 314)
+
+[node name="Stick2" type="Marker2D" parent="StickSitch" unique_id=1564640828]
+position = Vector2(1274, 502)
+
+[node name="Stick3" type="Marker2D" parent="StickSitch" unique_id=2083430188]
+position = Vector2(1272, 888)
+
+[node name="Stick4" type="Marker2D" parent="StickSitch" unique_id=1164998191]
+position = Vector2(1272, 696)
+
+[node name="Balls" type="Node2D" parent="." unique_id=846336709]
+
+[node name="Sticks" type="Node2D" parent="." unique_id=1092793339]
+
+[connection signal="pressed" from="CanvasLayer/DoneButton" to="." method="_on_done_button_pressed"]

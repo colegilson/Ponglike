@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dwp83pjpce27d"]
+
+[ext_resource type="Texture2D" uid="uid://qst1c5ahtpn1" path="res://assets/sticks/cigarette.png" id="1_g77cm"]
+[ext_resource type="Script" uid="uid://bhsnwj7wn3067" path="res://components/paddle/ciggy_burning.gd" id="2_6d3wq"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_p3xr0"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_6j8os"]
+
+[node name="CiggyBurning" type="TextureProgressBar" unique_id=1004254930]
+texture_filter = 1
+custom_minimum_size = Vector2(1, 1)
+offset_left = 195.00002
+offset_top = 24.000011
+offset_right = 235.00002
+offset_bottom = 64.000015
+rotation = 3.1415927
+scale = Vector2(3.526651, 7.1679587)
+value = 100.0
+texture_under = SubResource("ImageTexture_p3xr0")
+texture_over = SubResource("ImageTexture_6j8os")
+texture_progress = ExtResource("1_g77cm")
+script = ExtResource("2_6d3wq")
+metadata/left = false

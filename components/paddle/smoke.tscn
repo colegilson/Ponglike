@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://5qrpcb5p2kt"]
+
+[ext_resource type="Texture2D" uid="uid://djk226kugxn7v" path="res://stars (1).png" id="1_kljey"]
+[ext_resource type="Material" uid="uid://01jsmyckr6ho" path="res://components/ball/smokematerial.tres" id="2_niruk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p3xr0"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[node name="Smoke" type="GPUParticles2D" unique_id=55618436]
+z_index = -1
+material = SubResource("CanvasItemMaterial_p3xr0")
+position = Vector2(6.000004, 107)
+rotation = -2.4456341
+amount = 12
+texture = ExtResource("1_kljey")
+process_material = ExtResource("2_niruk")

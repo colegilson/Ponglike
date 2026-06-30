@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://c5hjd1ylw7clm"]
+
+[ext_resource type="FontFile" uid="uid://vjjeggr5lrvg" path="res://assets/ui/ImpactfulBits.ttf" id="1_t4oxw"]
+
+[resource]
+font = ExtResource("1_t4oxw")
+font_size = 69

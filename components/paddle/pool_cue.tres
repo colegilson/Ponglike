@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StickData" format=3 uid="uid://bljdfpabvfale"]
+
+[ext_resource type="PackedScene" uid="uid://cjlji0811f2pv" path="res://game/shop_stick.tscn" id="1_erfga"]
+[ext_resource type="Script" uid="uid://bequy0mvsuqv" path="res://components/stick_data.gd" id="2_blr0x"]
+[ext_resource type="Texture2D" uid="uid://cvqn8qsgme72n" path="res://assets/sticks/pool_cue.png" id="3_m1q8b"]
+[ext_resource type="PackedScene" uid="uid://rhbhl7xnauy4" path="res://components/ball/aim_arrow.tscn" id="4_blr0x"]
+
+[resource]
+script = ExtResource("2_blr0x")
+name = "Pool Cue"
+superpower_scene = ExtResource("4_blr0x")
+basic_scene = ExtResource("1_erfga")
+sprite = ExtResource("3_m1q8b")
+price = 1
+metadata/_custom_type_script = "uid://bequy0mvsuqv"

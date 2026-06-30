@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://452ee5k8to6x"]
+
+[ext_resource type="Texture2D" uid="uid://djk226kugxn7v" path="res://stars (1).png" id="1_jh6hk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p3xr0"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_u8ypc"]
+offsets = PackedFloat32Array(0, 0.054347824, 0.4728261, 1)
+colors = PackedColorArray(0.62352943, 0.74509805, 0.35686275, 1, 0.6259393, 0.72734576, 0.6479744, 1, 0.6397021, 0.60456616, 0.5987251, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u8ypc"]
+gradient = SubResource("Gradient_u8ypc")
+
+[sub_resource type="Curve" id="Curve_4pcgr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.509009, 0.8947369), -0.592287, -0.592287, 0, 0, Vector2(1, 0.50375944), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4pcgr"]
+curve = SubResource("Curve_4pcgr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x0oib"]
+lifetime_randomness = 0.14
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 0, 1)
+direction = Vector3(0, -20, 0)
+spread = 9.844
+flatness = 0.165
+initial_velocity_min = 32.149998
+initial_velocity_max = 250.01
+angular_velocity_min = -35.450016
+angular_velocity_max = 17.589983
+orbit_velocity_min = -0.4279999
+orbit_velocity_max = 0.4570001
+gravity = Vector3(0, -150, 0)
+linear_accel_min = -2.1400023
+linear_accel_max = -2.2351742e-06
+radial_accel_min = -10.220002
+radial_accel_max = -0.7400022
+tangential_accel_min = -35.0
+tangential_accel_max = 26.429996
+damping_max = 62.500004
+scale_curve = SubResource("CurveTexture_4pcgr")
+color_ramp = SubResource("GradientTexture1D_u8ypc")
+anim_offset_max = 1.0
+turbulence_noise_strength = 9.48
+turbulence_noise_speed_random = 2.72
+turbulence_initial_displacement_min = -100.0
+turbulence_initial_displacement_max = 100.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=1995052717]
+material = SubResource("CanvasItemMaterial_p3xr0")
+texture = ExtResource("1_jh6hk")
+process_material = SubResource("ParticleProcessMaterial_x0oib")

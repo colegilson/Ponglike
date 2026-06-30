@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://jppfn5yo1fvg"]
+
+[ext_resource type="Texture2D" uid="uid://cbovyv3k7gaem" path="res://assets/sticks/stars.png" id="1_tt66q"]
+[ext_resource type="Material" uid="uid://dl50bujm7tadc" path="res://game/money_process.tres" id="2_1c8ek"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p3xr0"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[node name="Sparkles" type="GPUParticles2D" unique_id=2028999551]
+material = SubResource("CanvasItemMaterial_p3xr0")
+position = Vector2(2.0000038, -121)
+rotation = 6.7439976
+scale = Vector2(0.1, 0.1)
+emitting = false
+amount = 9
+texture = ExtResource("1_tt66q")
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.81
+trail_lifetime = 6.1899999999999995
+process_material = ExtResource("2_1c8ek")
